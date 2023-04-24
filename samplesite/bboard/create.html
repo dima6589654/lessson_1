@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная : доска объявленией </title>
+</head>
+<body>
+
+<div>
+
+    <a href="{% url 'index'%}">Главная</a>
+    {% for rubric in rubrics%}
+        <a href="{% url 'by_rubric' rubric.pk %}">{{rubric.name}}</a>
+    {%endfor%}
+</div>
+<form action="" method="post">
+    {% csrf_token%}
+    {{form.as_p}}
+    <input type="sunbit" value="Добавить">
+</form>
+
+</body>
+</html>
