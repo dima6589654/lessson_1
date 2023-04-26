@@ -34,6 +34,6 @@ def by_rubric(request, rubric_id):
     context = {
         'bbs': bbs,
         'rubrics': rubrics,
-        'current_rubric': current_rubric
+        'current_rubric': current_rubric,
     }
     return render(request, 'bboard/by_rubric.html', context)
