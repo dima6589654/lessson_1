@@ -29,6 +29,19 @@ class Rubric(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        # Выполняем действия До сохранения
+        if True:
+            super().save(*args, **kwargs)
+        # Выполняем действия после сохранения
+
+    def delete(self, *args, **kwargs):
+        # Выполняем действия До удаления
+        if True:
+            super().save(*args, **kwargs)
+        # Выполняем действия после удаления
+
     def get_absolute_url(self):
         # return "/bboard/%s/"%self.pk
         # return f"/bboard/{self.pk}/"
@@ -74,10 +87,16 @@ class Bb(models.Model):
     def __str__(self):
         return f'Объявление: {self.title}'
 
+    def title_and_price(self):
+        if self.price:
+            # return "%s(%.2f)"%(self.title,self.price)
+            return f"{self.title}({self.price :.2f})"
+        return self.title
+
     class Meta:
         verbose_name = "Объявление"
         verbose_name_plural = "Объявления"
-        ordering = ['-published',]
+        ordering = ['-published', ]
 
 
 class Human(models.Model):
@@ -106,4 +125,4 @@ class IceCreamShop(models.Model):
     price = models.FloatField(
         null=True,
         blank=True,
-        verbose_name="Цена",)
+        verbose_name="Цена", )
