@@ -102,4 +102,4 @@ class IceCreamShop(models.Model):
     price = models.FloatField(
         null=True,
         blank=True,
-        verbose_name="Цена", )
+        verbose_name="Цена",)
