@@ -29,6 +29,10 @@ class Rubric(models.Model):
 
     def __str__(self):
         return self.name
+    def get_absolute_url(self):
+        # return "/bboard/%s/"%self.pk
+        # return f"/bboard/{self.pk}/"
+        return f"/{self.pk}/"
 
     class Meta:
         verbose_name = 'Рубрика'
