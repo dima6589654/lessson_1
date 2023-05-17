@@ -14,20 +14,20 @@ def validate_even(val):
         raise ValidationError('Число %(value)s нечётное', code='odd',
                               params={'value': val})
 
-
-class MinMaxValueValidator:
-    def __init__(self, min_value, max_value):
-        self.min_value = min_value
-        self.max_value = max_value
-
-    def __call__(self, val):
-        if val < self.min_value or val > self.max_value:
-            raise ValidationError('Введённое число должно >%(min)s'
-                                  'и <%(max)s',
-                                  code='out_of_range',
-                                  params={'min': self.min_value,
-                                          'max': self.max_value})
-
+#
+# class MinMaxValueValidator:
+#     def __init__(self, min_value, max_value):
+#         self.min_value = min_value
+#         self.max_value = max_value
+#
+#     def __call__(self, val):
+#         if val < self.min_value or val > self.max_value:
+#             raise ValidationError('Введённое число должно >%(min)s'
+#                                   'и <%(max)s',
+#                                   code='out_of_range',
+#                                   params={'min': self.min_value,
+#                                           'max': self.max_value})
+#
 
 class AdvUser(models.Model):
     is_activated = models.BooleanField(
@@ -57,17 +57,17 @@ class Rubric(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        # Выполняем действия До сохранения
-        if True:
-            super().save(*args, **kwargs)
-        # Выполняем действия после сохранения
-
-    def delete(self, *args, **kwargs):
-        # Выполняем действия До удаления
-        if True:
-            super().save(*args, **kwargs)
-        # Выполняем действия после удаления
+    # def save(self, *args, **kwargs):
+    #     # Выполняем действия До сохранения
+    #     if True:
+    #         super().save(*args, **kwargs)
+    #     # Выполняем действия после сохранения
+    #
+    # def delete(self, *args, **kwargs):
+    #     # Выполняем действия До удаления
+    #     if True:
+    #         super().save(*args, **kwargs)
+    #     # Выполняем действия после удаления
 
     def get_absolute_url(self):
         # return "/bboard/%s/"%self.pk
@@ -106,7 +106,7 @@ class Bb(models.Model):
         null=True,
         blank=True,
         verbose_name="Цена",
-        validators=[validate_even, MinMaxValueValidator(50, 60_000_000)]
+        validators=[validate_even,]# MinMaxValueValidator(50, 60_000_000)]
     )
 
     published = models.DateTimeField(
