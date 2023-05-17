@@ -106,7 +106,7 @@ class Bb(models.Model):
         null=True,
         blank=True,
         verbose_name="Цена",
-        validators=[validate_even,MinMaxValueValidator(50,60_000_000)]
+        validators=[validate_even, MinMaxValueValidator(50, 60_000_000)]
     )
 
     published = models.DateTimeField(
