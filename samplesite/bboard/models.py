@@ -82,6 +82,12 @@ class Rubric(models.Model):
 
 
 class Bb(models.Model):
+    KINDS = (
+        ("B", "куплю"),
+        ("S", "продам"),
+        ("C", "поменяю"),
+    )
+
     rubric = models.ForeignKey(
         'Rubric',
         null=True,
@@ -116,6 +122,11 @@ class Bb(models.Model):
         auto_now_add=True,
         db_index=True,
         verbose_name="Опубликовано",
+    )
+    kind = models.CharField(
+        max_length=1,
+        choices=KINDS,
+        default='S'
     )
 
     def __str__(self):
