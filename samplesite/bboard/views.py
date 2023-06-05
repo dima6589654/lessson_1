@@ -55,19 +55,22 @@ def index(request):
         'diff_price': result.get('diff_price'),
         'count_bb': count_bb(),
     }
-    return render(request, 'bboard/index.html', context)
+    return render(request, 'bboard/read.html', context)
 
 
-def by_rubric(request, rubric_id):
+def by_rubric(request, rubric_id, **kwargs):
     bbs = Bb.objects.filter(rubric=rubric_id)
     rubrics = Rubric.objects.all()
-    current_rubric = Rubric.objects.get(pk=rubric_id),
-
+    current_rubric = Rubric.objects.get(pk=rubric_id)
+    print(kwargs.get('name'))
 
     context = {
         'bbs': bbs,
         'rubrics': rubrics,
         'current_rubric': current_rubric,
-    'count_bb': count_bb(),
+        'count_bb': count_bb(),
+        'kwargs': kwargs
     }
+
+    print("jdt")
     return render(request, 'bboard/by_rubric.html', context)
