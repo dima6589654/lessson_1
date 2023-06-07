@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.core import validators
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -38,7 +39,7 @@ def validate_even(val):
 #         on_delete=models.CASCADE
 #     )
 
-#
+
 # class Spare(models.Model):
 #     name = models.CharField(max_length=30)
 #
@@ -46,7 +47,7 @@ def validate_even(val):
 # class Machine(models.Model):
 #     name = models.CharField(max_length=30)
 #     spares = models.ManyToManyField(Spare)
-#
+
 
 class Rubric(models.Model):
     name = models.CharField(
@@ -83,9 +84,9 @@ class Rubric(models.Model):
 
 class Bb(models.Model):
     KINDS = (
-        ("B", "куплю"),
-        ("S", "продам"),
-        ("C", "поменяю"),
+        ('b', 'Куплю'),
+        ('s', 'Продам'),
+        ('c', 'Поменяю')
     )
 
     rubric = models.ForeignKey(
@@ -103,6 +104,12 @@ class Bb(models.Model):
         # inverse_match=True)]
         # validators=[validators.ProhibitNullCharactersValidator()]  # \x00
         error_messages={'min_length': 'Слишком мало символов'},
+    )
+
+    kind = models.CharField(
+        max_length=1,
+        choices=KINDS,
+        default='s'
     )
 
     content = models.TextField(
@@ -123,11 +130,6 @@ class Bb(models.Model):
         db_index=True,
         verbose_name="Опубликовано",
     )
-    kind = models.CharField(
-        max_length=1,
-        choices=KINDS,
-        default='S'
-    )
 
     def __str__(self):
         return f'Объявление: {self.title}'
@@ -139,7 +141,7 @@ class Bb(models.Model):
         return self.title
 
     class Meta:
-        # order_with_respect_to = "rubric"
+        # order_with_respect_to = 'rubric'
         verbose_name = "Объявление"
         verbose_name_plural = "Объявления"
         ordering = ['-published', 'title']

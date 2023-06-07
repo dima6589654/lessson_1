@@ -1,5 +1,8 @@
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, DetailView
+from django.views.generic import CreateView, DetailView, ListView,\
+    DeleteView, UpdateView
+
 from testapp.forms import SMSCreateForm
 from testapp.models import SMS
 

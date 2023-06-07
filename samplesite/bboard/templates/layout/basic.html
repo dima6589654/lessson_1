@@ -7,29 +7,29 @@
     <meta charset="UTF-8">
     <title>{% block title %}Главная{% endblock %} ::
         Доска объявлений</title>
-    <link rel="stylesheet" href="{% static 'bboard/style.css'%}">
+    <link rel="stylesheet" href="{% static 'bboard/style.css' %}">
 </head>
 <body>
 <header>
-<h1>Объявления</h1>
+    <h1>Объявления</h1>
 </header>
-
-
 <nav>
     <a href="{% url 'index' %}">Главная</a>
     <a href="{% url 'add' %}">Добавить</a>
     {% for rubric in rubrics %}
-<!--        <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>-->
-        <a href="{{rubric.get_absolute_url}}">{{ rubric.name }} ({{count_bb|count_bbs:rubric.pk}})
+{#        <a href="{% url 'by_rubric' rubric.pk %}">#}
+        <a href="{{ rubric.get_absolute_url }}">
+            {{ rubric.name }}
+            {% if count_bb %}
+                ({{ count_bb|count_bbs:rubric.pk }})
+            {% endif %}
         </a>
     {% endfor %}
 </nav>
-
 <section>
     {% block content %}
-    Контента нет
+        Контента нет
     {% endblock %}
 </section>
-
 </body>
 </html>

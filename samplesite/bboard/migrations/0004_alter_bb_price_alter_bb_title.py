@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bboard', '0003_child_human_icecream_icecreamshop_spare_and_more'),
+        ('bboard', '0003_spare_alter_bb_options_machine_advuser'),
     ]
 
     operations = [

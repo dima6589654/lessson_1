@@ -2,7 +2,10 @@ from django.urls import path
 
 from bboard.views import index, by_rubric, BbCreateView
 
-vals = {'name': 'index', 'beaver': 'index1234'}
+vals = {
+    'name': 'by_index',
+    'beaver': 'beaver – это бобёр!'
+}
 
 urlpatterns = [
     path('', index, name='index'),

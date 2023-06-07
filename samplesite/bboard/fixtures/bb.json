@@ -1,1 +1,35 @@
-[{"model": "bboard.bb", "pk": 1, "fields": {"rubric": 1, "title": "Дача", "content": "Лень писать", "price": 500000.0, "published": "2023-05-22T08:50:52.979Z"}}, {"model": "bboard.bb", "pk": 2, "fields": {"rubric": 2, "title": "Бобёр ездовой", "content": "Плохо строит плотины", "price": 5555.0, "published": "2023-05-22T08:50:52.995Z"}}, {"model": "bboard.bb", "pk": 3, "fields": {"rubric": 1, "title": "Кусок земли", "content": "большой", "price": 100000.0, "published": "2023-05-22T08:50:52.995Z"}}]
+[
+  {
+    "model": "bboard.bb",
+    "pk": 1,
+    "fields": {
+      "rubric": 1,
+      "title": "Дача",
+      "content": "Лень писать",
+      "price": 500000.0,
+      "published": "2023-05-17T11:18:26.703Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 2,
+    "fields": {
+      "rubric": 2,
+      "title": "Бобёр ездовой",
+      "content": "Плохо строит плотины",
+      "price": 5555.0,
+      "published": "2023-05-17T11:18:26.703Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 3,
+    "fields": {
+      "rubric": 1,
+      "title": "Кусок земли",
+      "content": "Большой",
+      "price": 100000.0,
+      "published": "2023-05-17T11:18:26.703Z"
+    }
+  }
+]

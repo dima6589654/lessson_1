@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bboard', '0008_alter_bb_options_alter_bb_order_with_respect_to'),
+        ('bboard', '0007_alter_bb_options_alter_bb_order_with_respect_to'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='bb',
             name='kind',
-            field=models.CharField(choices=[('b', 'куплю'), ('s', 'продам'), ('c', 'поменяю')], default='S', max_length=1),
+            field=models.CharField(choices=[('b', 'Куплю'), ('s', 'Продам'), ('c', 'Поменяю')], default='s', max_length=1),
         ),
     ]

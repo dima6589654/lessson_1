@@ -1,20 +1,19 @@
-{% extends "layout\basic.html" %}
+{% extends "layout/basic.html" %}
 
-    {% block content %}
+{% block content %}
 
-{% for bb in bbs %}
-    <div>
-<!--        <h2>{{ bb.title }}</h2>-->
-        <h2>{{ bb.title_and_price }}</h2>
-        <p>{{ bb.content }}</p>
-        <p><a href="{{bb.rubric.get_absolute_url}}">
-            {{ bb.rubric.name }}</a></p>
-        <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
-    </div>
-{% endfor %}
-<h3> Максимальная цена : {{max_price}} Rub.</h3>
-<h3> Разница цена : {{diff_price}} Rub.</h3>
-<h3> Минимальная цена : {{min_price}} Rub.</h3>
+    <h3>Минимальная цена: {{ min_price }} руб.<br>
+        Максимальная цена: {{ max_price }} руб.<br>
+        Разница цен: {{ diff_price }} руб.</h3>
 
-
+    {% for bb in bbs %}
+        <div>
+{#            <h2>{{ bb.title }}</h2>#}
+            <h2>{{ bb.title_and_price }}</h2>
+            <p>{{ bb.content }}</p>
+            <p><a href="{{ bb.rubric.get_absolute_url }}">
+                {{ bb.rubric.name }}</a></p>
+            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}

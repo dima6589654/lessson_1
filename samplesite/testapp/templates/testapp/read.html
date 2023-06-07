@@ -1,7 +1,8 @@
-{% extends "layout\basic.html" %}
+{% extends "layout/basic.html" %}
 
-    {% block content %}
-<h2>SMS</h2>
-<p>ot:{{user}}</p>
-<p>DL:{{user}}</p>
+{% block content %}
+    <h2>Сообщение:</h2>
+    <p>От: {{ sms.sender }}</p>
+    <p>Для: {{ sms.receiver }}</p>
+    <p>{{ sms.comment }}</p>
 {% endblock %}
