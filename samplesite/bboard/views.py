@@ -16,7 +16,7 @@ def count_bb():
 
 
 class BbCreateView(CreateView):
-    template_name = 'bboard/create.html'
+    template_name = 'authapp/create.html'
     form_class = BbForm
     success_url = reverse_lazy('index')
 
@@ -80,7 +80,7 @@ def index(request):
         'diff_price': result.get('diff_price'),
         'count_bb': count_bb(),
     }
-    return render(request, 'bboard/index.html', context)
+    return render(request, 'authapp/index.html', context)
 
 
 def by_rubric(request, rubric_id, **kwargs):
@@ -99,4 +99,4 @@ def by_rubric(request, rubric_id, **kwargs):
         'kwargs': kwargs,
     }
     print()
-    return render(request, 'bboard/by_rubric.html', context)
+    return render(request, 'authapp/login.html', context)

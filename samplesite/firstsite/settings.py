@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'bboard.apps.BboardConfig',
+    'authapp.apps.BboardConfig',
     'testapp.apps.TestappConfig',
+    'authapp',
 ]
 
 MIDDLEWARE = [
@@ -55,9 +56,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'firstsite.urls'
 
 # ABSOLUTE_URL_OVERRIDES = {
-#     # 'bboard.rubric': lambda rec: "/bboard/%s/" % rec.pk,
-#     # 'bboard.rubric': lambda rec: f"/bboard/{rec.pk}/",
-#     'bboard.rubric': lambda rec: f"/{rec.pk}/",
+#     # 'authapp.rubric': lambda rec: "/authapp/%s/" % rec.pk,
+#     # 'authapp.rubric': lambda rec: f"/authapp/{rec.pk}/",
+#     'authapp.rubric': lambda rec: f"/{rec.pk}/",
 # }
 
 TEMPLATES = [

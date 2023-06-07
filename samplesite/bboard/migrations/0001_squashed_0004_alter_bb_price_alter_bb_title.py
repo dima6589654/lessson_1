@@ -9,7 +9,7 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    replaces = [('bboard', '0001_initial'), ('bboard', '0002_rubric_alter_bb_options_alter_bb_content_and_more'), ('bboard', '0003_spare_alter_bb_options_machine_advuser'), ('bboard', '0004_alter_bb_price_alter_bb_title')]
+    replaces = [('authapp', '0001_initial'), ('authapp', '0002_rubric_alter_bb_options_alter_bb_content_and_more'), ('authapp', '0003_spare_alter_bb_options_machine_advuser'), ('authapp', '0004_alter_bb_price_alter_bb_title')]
 
     initial = True
 
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=30)),
-                ('spares', models.ManyToManyField(to='bboard.spare')),
+                ('spares', models.ManyToManyField(to='authapp.spare')),
             ],
         ),
         migrations.CreateModel(
@@ -61,7 +61,7 @@ class Migration(migrations.Migration):
                 ('content', models.TextField(blank=True, null=True, verbose_name='Описание')),
                 ('price', models.FloatField(blank=True, null=True, validators=[bboard.models.validate_even], verbose_name='Цена')),
                 ('published', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Опубликовано')),
-                ('rubric', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='bboard.rubric', verbose_name='Рубрика')),
+                ('rubric', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='authapp.rubric', verbose_name='Рубрика')),
             ],
             options={
                 'ordering': ['-published', 'title'],

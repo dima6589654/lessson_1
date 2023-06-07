@@ -2,9 +2,19 @@
 
 {% block content %}
 
-    <h3>Минимальная цена: {{ min_price }} руб.<br>
-        Максимальная цена: {{ max_price }} руб.<br>
-        Разница цен: {{ diff_price }} руб.</h3>
+    {% if user.is_authenticated %}
+    <h3>
+        <a href="{% url 'authapp:logout' %}">
+            Выйти ({{ user.username }})
+        </a>
+    </h3>
+    {% else %}
+        <h3>
+            <a href="{% url'authapp:login'%}">
+                Войти
+            </a>
+        </h3>
+    {% endif %}
 
     {% for bb in bbs %}
         <div>

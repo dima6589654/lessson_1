@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bboard', '0005_remove_machine_spares_delete_advuser_delete_machine_and_more'),
+        ('authapp', '0005_remove_machine_spares_delete_advuser_delete_machine_and_more'),
     ]
 
     operations = [

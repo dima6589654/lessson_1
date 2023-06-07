@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bboard', '0009_alter_bb_options_alter_bb_order_with_respect_to'),
+        ('authapp', '0009_alter_bb_options_alter_bb_order_with_respect_to'),
     ]
 
     operations = [

@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bboard', '0001_initial'),
+        ('authapp', '0001_initial'),
     ]
 
     operations = [
@@ -50,6 +50,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='bb',
             name='rubric',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='bboard.rubric', verbose_name='Рубрика'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='authapp.rubric', verbose_name='Рубрика'),
         ),
     ]

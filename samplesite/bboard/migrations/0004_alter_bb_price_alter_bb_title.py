@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bboard', '0003_spare_alter_bb_options_machine_advuser'),
+        ('authapp', '0003_spare_alter_bb_options_machine_advuser'),
     ]
 
     operations = [
