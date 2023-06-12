@@ -72,8 +72,8 @@ class Rubric(models.Model):
     #     # Выполняем какие-то действия после удаления
 
     def get_absolute_url(self):
-        # return "/authapp/%s/" % self.pk
-        # return f"/authapp/{self.pk}/"
+        # return "/bboard/%s/" % self.pk
+        # return f"/bboard/{self.pk}/"
         return f"/{self.pk}/"
 
     class Meta:

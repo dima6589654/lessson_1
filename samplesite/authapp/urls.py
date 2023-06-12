@@ -1,4 +1,5 @@
 from django.urls import path
+
 from authapp.views import login, logout
 
 app_name = 'authapp'

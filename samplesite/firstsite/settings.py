@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'authapp.apps.BboardConfig',
+    'bboard.apps.BboardConfig',
     'testapp.apps.TestappConfig',
     'authapp',
 ]
@@ -56,15 +56,15 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'firstsite.urls'
 
 # ABSOLUTE_URL_OVERRIDES = {
-#     # 'authapp.rubric': lambda rec: "/authapp/%s/" % rec.pk,
-#     # 'authapp.rubric': lambda rec: f"/authapp/{rec.pk}/",
-#     'authapp.rubric': lambda rec: f"/{rec.pk}/",
+#     # 'bboard.rubric': lambda rec: "/bboard/%s/" % rec.pk,
+#     # 'bboard.rubric': lambda rec: f"/bboard/{rec.pk}/",
+#     'bboard.rubric': lambda rec: f"/{rec.pk}/",
 # }
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

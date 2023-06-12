@@ -6,7 +6,7 @@ from django.core.management import BaseCommand
 
 from bboard.models import Rubric, Bb
 
-JSON_PATH = os.path.join('authapp', 'fixtures')
+JSON_PATH = os.path.join('bboard', 'fixtures')
 
 
 def load_from_json(file_name):

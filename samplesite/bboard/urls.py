@@ -7,7 +7,7 @@ vals = {
     'beaver': 'beaver – это бобёр!'
 }
 
-# app_name = 'authapp'
+# app_name = 'bboard'
 
 urlpatterns = [
     re_path(r'^$', index, name='index'),

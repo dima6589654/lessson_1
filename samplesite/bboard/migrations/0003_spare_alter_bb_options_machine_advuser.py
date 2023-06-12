@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('authapp', '0002_rubric_alter_bb_options_alter_bb_content_and_more'),
+        ('bboard', '0002_rubric_alter_bb_options_alter_bb_content_and_more'),
     ]
 
     operations = [
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=30)),
-                ('spares', models.ManyToManyField(to='authapp.spare')),
+                ('spares', models.ManyToManyField(to='bboard.spare')),
             ],
         ),
         migrations.CreateModel(
