@@ -1,4 +1,4 @@
-from django.db.models import Min, Max, Count, Q, Sum, IntegerField, Avg
+from django.db.models import Min, Max, Count
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.template.loader import get_template, render_to_string
