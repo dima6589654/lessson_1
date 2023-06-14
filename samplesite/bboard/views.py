@@ -1,7 +1,7 @@
 from django.db.models import Min, Max, Count
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from django.template.loader import get_template, render_to_string
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy, reverse
 from django.views.generic.edit import CreateView
 
@@ -15,6 +15,12 @@ def count_bb():
         result.update({r.pk: r.num_bbs})
 
     return result
+
+
+def print_req(request):
+    for attr in dir(request):
+        value = getattr(request, attr)
+        print(attr, ":", attr)
 
 
 class BbCreateView(CreateView):
@@ -33,7 +39,7 @@ def index(request):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
     context = {'bbs': bbs, 'rubrics': rubrics}
-    template = get_template("bboard/index.html")
+    # template = get_template("bboard/index.html")
 
     # return HttpResponse(template.render(context=context, request=request))
     return HttpResponse(render_to_string("bboard/index.html", context=context, request=request))
@@ -108,17 +114,13 @@ def by_rubric(request, rubric_id, **kwargs):
     rubrics = Rubric.objects.all()
     current_rubric = Rubric.objects.get(pk=rubric_id)
 
-    print(kwargs.get('name'), kwargs.get('beaver'))
-
     context = {
         'bbs': bbs,
         'rubrics': rubrics,
         'current_rubric': current_rubric,
         'count_bb': count_bb(),
-        # 'name': kwargs.get('name'),
         'kwargs': kwargs,
     }
-    print()
     return render(request, 'bboard/by_rubric.html', context)
 
 
@@ -141,6 +143,7 @@ def add_save(request):
 
 def add_and_save(request):
     if request.method == "POST":
+
         bbf = BbForm(request.POST)
         if bbf.is_valid():
             bbf.save()
@@ -153,3 +156,10 @@ def add_and_save(request):
         bbf = BbForm()
         context = {"form": bbf}
         return render(request, "bboard/create.html", context)
+
+# def detail(request, bb_id):
+#     try:
+#         bb = Bb.objects.get(pk=bb_id)
+#     except Bb.DoesNotExist:
+#         return HttpResponseNotFound('Такое объявление не существует')
+#     return HttpResponse(...)
