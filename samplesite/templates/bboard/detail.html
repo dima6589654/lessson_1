@@ -1,0 +1,18 @@
+{% extends "layout/basic.html" %}
+
+{% block content %}
+
+<h1> Товар: {{ bb.title }}</h1>
+<p> Цена: {{ bb.price }} </p>
+<p> Описание: {{ bb.content }} </p>
+    {% for bb in bbs %}
+        <div>
+{#            <h2>{{ bb.title }}</h2>#}
+           <p> {{ bb.title_and_price }}</p>
+            <p>{{ bb.content }}</p>
+            <p><a href="{{ bb.rubric.get_absolute_url }}">
+                {{ bb.rubric.name }}</a></p>
+            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

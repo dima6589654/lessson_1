@@ -1,6 +1,6 @@
 from django.db.models import Min, Max, Count
-from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy, reverse
 from django.views.generic.edit import CreateView
@@ -40,9 +40,18 @@ def index(request):
     rubrics = Rubric.objects.all()
     context = {'bbs': bbs, 'rubrics': rubrics}
     # template = get_template("bboard/index.html")
-
     # return HttpResponse(template.render(context=context, request=request))
     return HttpResponse(render_to_string("bboard/index.html", context=context, request=request))
+
+    # data = {'title':'MOTO','content':'старый','price':1000.0}
+    # return JsonResponse(data)
+    # return redirect('by_rubric', rubric_id=bbf.cleaned_data['rubric'].pk)
+
+
+# def index(request):
+#     resp_content = ('Здесь будет', 'главная', 'страница', 'сайта')
+#     resp = StreamingHttpResponse(resp_content, content_type="text/plain; charset=utf-8")
+#     return resp
 
 
 def index_resp(request):
@@ -157,9 +166,17 @@ def add_and_save(request):
         context = {"form": bbf}
         return render(request, "bboard/create.html", context)
 
+
 # def detail(request, bb_id):
 #     try:
 #         bb = Bb.objects.get(pk=bb_id)
 #     except Bb.DoesNotExist:
 #         return HttpResponseNotFound('Такое объявление не существует')
 #     return HttpResponse(...)
+
+
+def detail(request, rec_id):
+    bb = get_object_or_404(Bb, pk=rec_id)
+    bbs = get_list_or_404(Bb, rubric=bb.rubric.pk)
+    context = {'bb':bb,'bbs': bbs}
+    return HttpResponse(render_to_string("bboard/detail.html", context, request))
