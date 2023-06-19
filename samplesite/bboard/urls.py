@@ -18,8 +18,8 @@ vals = {
 urlpatterns = [
     path('', index, name='index'),
     path('<int:rubric_id>/', by_rubric, vals, name='by_rubric'),
-    path('add/', add_and_save, name='add'),
     # path('add/', BbCreateView.as_view(), name='add'),
     # path('add/save/', add_save, name='add_save'),
     # path('add/', add, name='add'),
+    path('add/', add_and_save, name='add'),
 ]

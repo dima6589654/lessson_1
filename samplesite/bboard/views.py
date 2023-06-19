@@ -1,7 +1,7 @@
-from django.db.models import Min, Max, Count
-from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
+from django.db.models import Min, Max, Count, Q, Sum, IntegerField, Avg
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render
-from django.template.loader import render_to_string
+from django.template.loader import get_template, render_to_string
 from django.urls import reverse_lazy, reverse
 from django.views.generic.edit import CreateView
 
@@ -17,10 +17,10 @@ def count_bb():
     return result
 
 
-def print_req(request):
+def print_request_fields(request):
     for attr in dir(request):
         value = getattr(request, attr)
-        print(attr, ":", attr)
+        print(f"{attr}: {value}")
 
 
 class BbCreateView(CreateView):
@@ -35,22 +35,21 @@ class BbCreateView(CreateView):
         return context
 
 
+def index_resp(request):
+    resp = HttpResponse("Здесь будет", content_type='text/plain; charset=utf-8')
+    resp.write(' главная')
+    resp.writelines((' страница', ' сайта'))
+    resp['keywords'] = 'Python, Django'
+    return resp
+
+
 def index(request):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
     context = {'bbs': bbs, 'rubrics': rubrics}
-    # template = get_template("bboard/index.html")
-
-    # return HttpResponse(template.render(context=context, request=request))
-    return HttpResponse(render_to_string("bboard/index.html", context=context, request=request))
-
-
-def index_resp(request):
-    resp = HttpResponse("Здесь будет", content_type='text/plain; charset=utf-8')
-    resp.write(" Главная ")
-    resp.writelines((' страница ', 'Сайта'))
-    resp["keywords"] = ' Python ', 'Django'
-    return resp
+    # template = get_template('bboard/index.html')
+    # return HttpResponse(template.render(context, request))
+    return HttpResponse(render_to_string('bboard/index.html', context, request))
 
 
 def index_old(request):
@@ -110,56 +109,71 @@ def index_old(request):
 
 
 def by_rubric(request, rubric_id, **kwargs):
+    print_request_fields(request)
+
+    current_rubric = Rubric()
+    try:
+        current_rubric = Rubric.objects.get(pk=rubric_id)
+    except current_rubric.DoesNotExist:
+        return HttpResponseNotFound('Такой рубрики нет!')
+
     bbs = Bb.objects.filter(rubric=rubric_id)
     rubrics = Rubric.objects.all()
-    current_rubric = Rubric.objects.get(pk=rubric_id)
+
+    # print(kwargs.get('name'), kwargs.get('beaver'))
 
     context = {
         'bbs': bbs,
         'rubrics': rubrics,
         'current_rubric': current_rubric,
         'count_bb': count_bb(),
+        # 'name': kwargs.get('name'),
         'kwargs': kwargs,
     }
+
     return render(request, 'bboard/by_rubric.html', context)
 
 
 def add(request):
     bbf = BbForm()
-    context = {"form": bbf}
-    return render(request, "bboard/create.html", context)
+    context = {'form': bbf}
+    return render(request, 'bboard/create.html', context)
 
 
 def add_save(request):
     bbf = BbForm(request.POST)
+
     if bbf.is_valid():
         bbf.save()
-        return HttpResponseRedirect(reverse("by_rubric",
-                                            kwargs={"rubric_id": bbf.cleaned_data["rubric"].pk}))
+
+        return HttpResponseRedirect(reverse('by_rubric',
+                    kwargs={'rubric_id': bbf.cleaned_data['rubric'].pk}))
     else:
-        context = {"form": bbf}
-        return render(request, "bboard/create.html", context)
+        context = {'form': bbf}
+        return render(request, 'bboard/create.html', context)
 
 
 def add_and_save(request):
-    if request.method == "POST":
-
+    if request.method == 'POST':
         bbf = BbForm(request.POST)
+
         if bbf.is_valid():
             bbf.save()
-            return HttpResponseRedirect(reverse("by_rubric",
-                                                kwargs={"rubric_id": bbf.cleaned_data["rubric"].pk}))
+            return HttpResponseRedirect(reverse('by_rubric',
+                        kwargs={'rubric_id': bbf.cleaned_data['rubric'].pk}))
         else:
-            context = {"form": bbf}
-            return render(request, "bboard/create.html", context)
+            context = {'form': bbf}
+            return render(request, 'bboard/create.html', context)
     else:
         bbf = BbForm()
-        context = {"form": bbf}
-        return render(request, "bboard/create.html", context)
+        context = {'form': bbf}
+        return render(request, 'bboard/create.html', context)
+
 
 # def detail(request, bb_id):
 #     try:
 #         bb = Bb.objects.get(pk=bb_id)
 #     except Bb.DoesNotExist:
-#         return HttpResponseNotFound('Такое объявление не существует')
+#         # return HttpResponseNotFound('Такого объявлениея нет')
+#         return Http404('Такого объявлениея нет')
 #     return HttpResponse(...)
