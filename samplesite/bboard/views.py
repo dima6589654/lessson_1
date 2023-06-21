@@ -1,9 +1,7 @@
-from django.db.models import Min, Max, Count, Q, Sum, IntegerField, Avg
-from django.http import HttpResponseRedirect, HttpResponse, \
-    HttpResponseNotFound, Http404, StreamingHttpResponse, FileResponse, \
-    JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
-from django.template.loader import get_template, render_to_string
+from django.db.models import Min, Max, Count
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy, reverse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
@@ -65,6 +63,17 @@ def index(request):
 #     return resp
 
 
+class IndexView(TemplateView):
+    template_name = 'bboard/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bbs'] = Bb.objects.all()
+        context['rubrics'] = Rubric.objects.all()
+        context['count_bb'] = count_bb()
+        return context
+
+
 def index_old(request):
     bbs = Bb.objects.order_by('-published')
     rubrics = Rubric.objects.all()
@@ -121,30 +130,30 @@ def index_old(request):
     return render(request, 'bboard/index.html', context)
 
 
-def by_rubric(request, rubric_id, **kwargs):
-    print_request_fields(request)
-
-    current_rubric = Rubric()
-    try:
-        current_rubric = Rubric.objects.get(pk=rubric_id)
-    except current_rubric.DoesNotExist:
-        return HttpResponseNotFound('Такой рубрики нет!')
-
-    bbs = Bb.objects.filter(rubric=rubric_id)
-    rubrics = Rubric.objects.all()
-
-    # print(kwargs.get('name'), kwargs.get('beaver'))
-
-    context = {
-        'bbs': bbs,
-        'rubrics': rubrics,
-        'current_rubric': current_rubric,
-        'count_bb': count_bb(),
-        # 'name': kwargs.get('name'),
-        'kwargs': kwargs,
-    }
-
-    return render(request, 'bboard/by_rubric.html', context)
+# def by_rubric(request, rubric_id, **kwargs):
+#     print_request_fields(request)
+#
+#     current_rubric = Rubric()
+#     try:
+#         current_rubric = Rubric.objects.get(pk=rubric_id)
+#     except current_rubric.DoesNotExist:
+#         return HttpResponseNotFound('Такой рубрики нет!')
+#
+#     bbs = Bb.objects.filter(rubric=rubric_id)
+#     rubrics = Rubric.objects.all()
+#
+#     # print(kwargs.get('name'), kwargs.get('beaver'))
+#
+#     context = {
+#         'bbs': bbs,
+#         'rubrics': rubrics,
+#         'current_rubric': current_rubric,
+#         'count_bb': count_bb(),
+#         # 'name': kwargs.get('name'),
+#         'kwargs': kwargs,
+#     }
+#
+#     return render(request, 'bboard/by_rubric.html', context)
 
 
 class BbBuRubricView(TemplateView):
@@ -155,30 +164,8 @@ class BbBuRubricView(TemplateView):
         context['current_rubric'] = Rubric.objects.get(pk=context['rubric_id'])
         context['bbs'] = Bb.objects.filter(rubric=context['rubric_id'])
         context['rubrics'] = Rubric.objects.all()
+        context['count_bb'] = count_bb()
         return context
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def add(request):
@@ -232,3 +219,14 @@ def detail(request, rec_id):
     context = {'bb': bb, 'bbs': bbs}
     return HttpResponse(render_to_string('bboard/detail.html',
                                          context, request))
+
+
+class BbDetailView(TemplateView):
+    template_name = 'bboard/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bb'] = get_object_or_404(Bb, pk=context['rec_id'])
+        # context['bbs'] = get_list_or_404(Bb, rubric=context['bb.rubric'])
+
+        return context
