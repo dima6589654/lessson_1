@@ -2,13 +2,15 @@
 
 {% block content %}
 
-<h1> Товар: {{ bb.title }}</h1>
-<p> Цена: {{ bb.price }} </p>
-<p> Описание: {{ bb.content }} </p>
+    <h1>Товар: {{ bb.title }}</h1>
+    <p>Цена: {{ bb.price }} тг.</p>
+    <p>Описание: {{ bb.content }}</p>
+
+    <h2 style="color: darkblue;">Похожие товары</h2>
+
     {% for bb in bbs %}
         <div>
-{#            <h2>{{ bb.title }}</h2>#}
-           <p> {{ bb.title_and_price }}</p>
+            <h2>{{ bb.title_and_price }}</h2>
             <p>{{ bb.content }}</p>
             <p><a href="{{ bb.rubric.get_absolute_url }}">
                 {{ bb.rubric.name }}</a></p>
