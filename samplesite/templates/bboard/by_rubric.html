@@ -11,7 +11,9 @@
     {% for bb in bbs %}
         <div>
 {#            <h2>{{ bb.title }}</h2>#}
-            <h2>{{ bb.title_and_price }}</h2>
+            <a href="{% url 'detail' pk=bb.pk %}">
+                     <h2>{{ bb.title_and_price }}</h2>
+            </a>
             <p>{{ bb.content }}</p>
             <p><a href="{{ bb.rubric.get_absolute_url }}">
                 {{ bb.rubric.name }}</a></p>

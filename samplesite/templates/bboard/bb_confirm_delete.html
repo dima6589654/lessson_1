@@ -1,0 +1,12 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Добавление объявления{% endblock %}
+
+{% block content %}
+    <h2>delete объявления</h2>
+    <h1>Товар: {{ bb.title }}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="delete">
+    </form>
+{% endblock %}
