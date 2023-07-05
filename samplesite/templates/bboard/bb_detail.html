@@ -1,8 +1,13 @@
 {% extends "layout/basic.html" %}
-{% block title %}{{bb.title}}{% endblock %}
+
+{% block title %}{{ bb.title }}{% endblock %}
+
 {% block content %}
-    <p>Рубрика: {{bb.rubric.name }}</p>
+
+    <p>Рубрика: {{ bb.rubric.name }}</p>
+
     <h1>Товар: {{ bb.title }}</h1>
     <p>Описание: {{ bb.content }}</p>
     <p>Цена: {{ bb.price }} тг.</p>
+
 {% endblock %}

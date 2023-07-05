@@ -20,6 +20,7 @@
         <div>
 {#            <h2>{{ bb.title }}</h2>#}
             <h2>
+                {#<a href="{% url 'read' bb.pk %}">#}
                 <a href="{% url 'detail' pk=bb.pk %}">
                     {{ bb.title_and_price }}
                 </a>
