@@ -67,6 +67,8 @@ def index(request):
     rubrics = Rubric.objects.all()
     context = {'bbs': bbs, 'rubrics': rubrics}
     return HttpResponse(render_to_string('bboard/index.html', context, request))
+
+
 def index_old(request):
     bbs = Bb.objects.order_by('-published')
     rubrics = Rubric.objects.all()
@@ -108,6 +110,7 @@ def by_rubric(request, rubric_id, **kwargs):
 
     return render(request, 'bboard/by_rubric.html', context)
 
+
 def add(request):
     bbf = BbForm()
     context = {'form': bbf}
@@ -121,7 +124,7 @@ def add_save(request):
         bbf.save()
 
         return HttpResponseRedirect(reverse('by_rubric',
-                    kwargs={'rubric_id': bbf.cleaned_data['rubric'].pk}))
+                                            kwargs={'rubric_id': bbf.cleaned_data['rubric'].pk}))
     else:
         context = {'form': bbf}
         return render(request, 'bboard/create.html', context)
@@ -134,7 +137,7 @@ def add_and_save(request):
         if bbf.is_valid():
             bbf.save()
             return HttpResponseRedirect(reverse('by_rubric',
-                        kwargs={'rubric_id': bbf.cleaned_data['rubric'].pk}))
+                                                kwargs={'rubric_id': bbf.cleaned_data['rubric'].pk}))
         else:
             context = {'form': bbf}
             return render(request, 'bboard/create.html', context)
@@ -142,6 +145,7 @@ def add_and_save(request):
         bbf = BbForm()
         context = {'form': bbf}
         return render(request, 'bboard/create.html', context)
+
 
 def detail(request, rec_id):
     bb = get_object_or_404(Bb, pk=rec_id)
