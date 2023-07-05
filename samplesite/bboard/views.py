@@ -1,3 +1,5 @@
+from django.views.generic import ArchiveIndexView, MonthArchiveView, RedirectView
+
 from bboard.forms import BbForm
 from bboard.models import Bb, Rubric
 from django.db.models import Min, Max, Count
@@ -163,6 +165,9 @@ class BbDetailView(DetailView):
         context['rubrics'] = Rubric.objects.all()
         return context
 
+class BbRedirectView(RedirectView):
+    url = '/detail/%(pk)d/'
+
 
 class BbByRubricView(ListView):
     template_name = 'bboard/by_rubric.html'
@@ -199,3 +204,24 @@ class BbAddView(FormView):
     def get_success_url(self):
         return reverse('by_rubric',
                        kwargs={'rubric_id': self.object.cleaned_data['rubric'].pk})
+
+
+class BbIndexView(ArchiveIndexView):
+    model = Bb
+    date_field = 'published'
+    date_list_period = 'year'
+    template_name = 'bboard/index.html'
+    context_object_name = 'bbs'
+    allow_empty = True
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['rubrics'] = Rubric.objects.all()
+        return context
+
+
+class BbMonthArchiveView(MonthArchiveView):
+    model = Bb
+    date_field = "published"
+    month_format = '%m'
+    context_object_name = 'bbs'
