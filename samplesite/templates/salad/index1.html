@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="На нашем сайте вы найдете широкий ассортимент корейских салатов высокого качества с доставкой.
+Мы предлагаем разнообразные вкусные и здоровые блюда, приготовленные с использованием свежих ингредиентов.
+Закажите корейские салаты прямо сейчас и наслаждайтесь их уникальными вкусами прямо у себя дома.">
+  <meta name="keywords" content="салаты, корейские салаты, корея , Доставка, Алматы">
+  <title>Корейские салаты</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .salad-card {
+      max-width: 18rem;
+      margin-bottom: 2rem;
+    }
+    .salad-description {
+      display: none;
+    }
+        body {
+      background-image: url('../../../../Users/кандм/Desktop/salad1.jpg');
+      background-size: cover;
+    }
+          .salad-card {
+    border: 1px solid #224220; /* Здесь задайте стиль рамки */
+    padding: 10px; /* Добавьте отступ вокруг элемента, чтобы рамка была видима */
+  }
+  </style>
+  <script>
+    function toggleDescription(cardId) {
+      const description = document.getElementById(cardId);
+      description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <header class="bg-warning py-1">
+    <div class="container">
+      <h1>Корейские салаты</h1>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Меню</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#salads">Салаты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-3">
+    <div class="container" id="about">
+      <h2>О нас</h2>
+      <p>Мы специализируемся на приготовлении и предоставлении широкого ассортимента вкусных и свежих корейских салатов. Наша команда профессиональных поваров готова порадовать вас разнообразием вкусов и ингредиентов.</p>
+    </div>
+
+    <div class="container" id="salads">
+      <h2>Салаты</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="card salad-card">
+            <img src="{% static 'salad/salad1.jpg' %}" class="card-img-top" alt="Салат 1">
+            <div class="card-body">
+              <h5 class="card-title">Салат 1</h5>
+              <p class="card-text">Цена: $10</p>
+              <button class="btn btn-primary" onclick="toggleDescription('salad1-description')">Развернуть</button>
+              <p id="salad1-description" class="salad-description">Описание салата 1.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card salad-card">
+            <img src="salad2.jpg" class="card-img-top" alt="Салат 2">
+            <div class="card-body">
+              <h5 class="card-title">Салат 2</h5>
+              <p class="card-text">Цена: $12</p>
+              <button class="btn btn-primary" onclick="toggleDescription('salad2-description')">Развернуть</button>
+              <p id="salad2-description" class="salad-description">Описание салата 2.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card salad-card">
+            <img src="salad3.jpg" class="card-img-top" alt="Салат 3">
+            <div class="card-body">
+              <h5 class="card-title">Салат 3</h5>
+              <p class="card-text">Цена: $15</p>
+              <button class="btn btn-primary" onclick="toggleDescription('salad3-description')">Развернуть</button>
+              <p id="salad3-description" class="salad-description">Описание салата 3.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+<footer class="bg-light  text-dark py-1">
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h5>О нас</h5>
+        <p>Мы являемся ведущими поставщиками свежих корейских салатов высокого качества. У нас широкий ассортимент вкусных и здоровых блюд.</p>
+      </div>
+      <div class="col-md-4 mb-4" id="contact">
+        <h5>Контакты</h5>
+        <p>Телефон: 123-456-7890</p>
+        <p>Email: info@example.com</p>
+        <p>Адрес: г. Ваш город, ул. Ваша улица, дом 123</p>
+      </div>
+    </div>
+    <hr>
+    <p class="text-center">Все права защищены &copy; 2023</p>
+  </div>
+</footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

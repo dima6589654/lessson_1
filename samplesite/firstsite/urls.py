@@ -6,4 +6,5 @@ urlpatterns = [
     path('', include('bboard.urls')),
     path('testapp/', include('testapp.urls', namespace='testapp')),
     path('auth/', include('authapp.urls', namespace='authapp')),
+    path('salad/', include('salad.urls')),
 ]

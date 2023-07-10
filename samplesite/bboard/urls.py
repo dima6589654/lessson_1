@@ -2,9 +2,7 @@ from django.urls import path
 from django.views.generic import WeekArchiveView
 
 from bboard.models import Bb
-from bboard.views import index, detail, BbByRubricView, BbDetailView, BbAddView, BbMonthArchiveView,BbRedirectView
-
-
+from bboard.views import index, detail, BbByRubricView, BbDetailView, BbAddView, BbMonthArchiveView, BbRedirectView
 
 urlpatterns = [
     path('', index, name='index'),

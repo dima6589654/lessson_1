@@ -67,7 +67,7 @@ def index_resp(request):
 def index(request):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
-    context = {'bbs': bbs, 'rubrics': rubrics}
+    context = {'bbs': bbs, 'rubrics': rubrics,'test_var':"error"}
     return HttpResponse(render_to_string('bboard/index.html', context, request))
 
 
@@ -164,6 +164,7 @@ class BbDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
         return context
+
 
 class BbRedirectView(RedirectView):
     url = '/detail/%(pk)d/'
