@@ -67,7 +67,14 @@ def index_resp(request):
 def index(request):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
-    context = {'bbs': bbs, 'rubrics': rubrics,'test_var':"error"}
+    ulist = ['php',
+             ['python', 'django'],
+             ['js', 'nodejs']]
+
+    context = {'bbs': bbs,
+               'rubrics': rubrics,
+               'test_var': "error",
+               'ulist': ulist}
     return HttpResponse(render_to_string('bboard/index.html', context, request))
 
 
