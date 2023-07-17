@@ -1,0 +1,30 @@
+{% load count_bbs %}
+<nav>
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'add' %}">Добавить</a>
+    {% for rubric in rubrics %}
+{#        <a href="{% url 'by_rubric' rubric.pk %}">#}
+        <a href="{{ rubric.get_absolute_url }}">
+            {{ rubric.name }}
+            {% if count_bb %}
+              {{ count_bb|count_bbs:rubric.pk }}
+            {% endif %}
+        </a>
+    {% endfor %}
+    {% block content %}
+    {% if user.is_authenticated %}
+
+    <h4>
+        <a href="{% url 'authapp:logout' %}">
+            Выйти ({{ user.username }})
+        </a>
+    </h4>
+    {% else %}
+        <h4>
+            <a href="{% url 'authapp:login' %}">
+                Войти
+            </a>
+        </h4>
+    {% endif %}
+    {% endblock %}
+</nav>

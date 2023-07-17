@@ -1,0 +1,16 @@
+{% block content %}
+    {% if user.is_authenticated %}
+
+    <h3>
+        <a href="{% url 'authapp:logout' %}">
+            Выйти ({{ user.username }})
+        </a>
+    </h3>
+    {% else %}
+        <h3>
+            <a href="{% url 'authapp:login' %}">
+                Войти
+            </a>
+        </h3>
+    {% endif %}
+    {% endblock %}
