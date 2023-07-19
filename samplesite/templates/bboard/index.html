@@ -1,5 +1,10 @@
 {% extends "layout/basic.html" %}
 {% block content %}
+<h1>страница {{page.number}}</h1>
+<p>кол-во записей {{page_count}}</p>
+
+
+
 
 {%for bb in bbs%}
 {% with bb_count=bbs.count %}
@@ -28,7 +33,17 @@
                         <p>{%firstof bb.phone bb.email 'herg' %}</p>
         </div>
     {% endfor %}
+<h1> {% if page.has_previous %}
+    <a href="?page={{page.previous_page_number}}"> &#9664;</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    {%endif%}
+    № {{page.number}} из {{ page.paginator.num_pages}}
+    {% if page.has_next %}
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'page1' page.next_page_number %}"> &#9654;</a>
+        {%endif%}
 
+</h1>
 <p>
     {% for d in date_list %}
     {{d}}

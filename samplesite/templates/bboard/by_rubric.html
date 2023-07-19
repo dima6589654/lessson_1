@@ -20,4 +20,15 @@
             <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
         </div>
     {% endfor %}
+<h1> {% if bbs.has_previous %}
+    <a href="{% url 'rubric_page' bbs.previous_page_number %}"> &#9664;</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    {%endif%}
+    № {{bbs.number}} из {{ bbs.paginator.num_pages}}
+    {% if bbs.has_next %}
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'rubric_page' bbs.next_page_number %}"> &#9654;</a>
+        {%endif%}
+
+</h1>
 {% endblock %}

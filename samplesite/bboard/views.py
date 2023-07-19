@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ArchiveIndexView, MonthArchiveView, RedirectView
 
 from bboard.forms import BbForm
@@ -64,18 +65,52 @@ def index_resp(request):
     return resp
 
 
-def index(request):
+# def index(request):
+#     bbs = Bb.objects.all()
+#     rubrics = Rubric.objects.all()
+#     paginator = Paginator(bbs, 7)
+#     if 'page' in request.GET:
+#         page_num = request.GET['page']
+#     else:
+#         page_num = 1
+#     page = paginator.get_page(page_num)
+#
+#     context = {'rubrics': rubrics,
+#                'page': page,
+#                'bbs': page.object_list,
+#                }
+#     return HttpResponse(render_to_string('bboard/index.html', context, request))
+#
+
+
+
+
+def index(request, page=1):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
-    ulist = ['php',
-             ['python', 'django'],
-             ['js', 'nodejs']]
+    paginator = Paginator(bbs, 7)
+    try:
+        bbs_paginator = paginator.get_page(page)
+    except PageNotAnInteger:
+        bbs_paginator = paginator.get_page(1)
+    except EmptyPage:
+        bbs_paginator = paginator.get_page(paginator.num_pages)
 
-    context = {'bbs': bbs,
-               'rubrics': rubrics,
-               'test_var': "error",
-               'ulist': ulist}
+    context = {'rubrics': rubrics,
+               'page': bbs_paginator,
+               'bbs': bbs_paginator.object_list,
+               }
     return HttpResponse(render_to_string('bboard/index.html', context, request))
+
+
+
+
+
+
+
+
+
+
 
 
 def index_old(request):
@@ -99,22 +134,28 @@ def index_old(request):
 
 def by_rubric(request, rubric_id, **kwargs):
     print_request_fields(request)
-
+    bbs = Bb.objects.filter(rubric=rubric_id)
+    rubrics = Rubric.objects.all()
     current_rubric = Rubric()
+    paginator = Paginator(bbs, 1)
+    if 'page' in request.GET:
+        page_num = request.GET['page']
+    else:
+        page_num = 1
+    page = paginator.get_page(page_num)
+
     try:
         current_rubric = Rubric.objects.get(pk=rubric_id)
     except current_rubric.DoesNotExist:
         return HttpResponseNotFound('Такой рубрики нет!')
 
-    bbs = Bb.objects.filter(rubric=rubric_id)
-    rubrics = Rubric.objects.all()
-
     context = {
-        'bbs': bbs,
         'rubrics': rubrics,
         'current_rubric': current_rubric,
         'count_bb': count_bb(),
         'kwargs': kwargs,
+        'page': page,
+        'bbs': page.object_list,
     }
 
     return render(request, 'bboard/by_rubric.html', context)
@@ -180,6 +221,7 @@ class BbRedirectView(RedirectView):
 class BbByRubricView(ListView):
     template_name = 'bboard/by_rubric.html'
     context_object_name = 'bbs'
+    paginate_by = 1
 
     def get_queryset(self):
         return Bb.objects.filter(rubric=self.kwargs['rubric_id'])
