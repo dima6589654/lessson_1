@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from authapp.forms import UserLoginForm
+from authapp.forms import UserLoginForm, RegisterUserForm
 
 
 def login(request):
@@ -26,6 +26,26 @@ def login(request):
     }
 
     return render(request, 'authapp/login.html', context)
+
+
+def register(request):
+    title = "Регистрация"
+
+    if request.method == 'POST':
+        register_form = RegisterUserForm(data=request.POST)
+
+        if register_form.is_valid():
+            register_form.save()
+            return HttpResponseRedirect(reverse('authapp:login'))
+    else:
+        register_form = RegisterUserForm()
+
+    context = {
+        'title': title,
+        'register_form': register_form,
+    }
+
+    return render(request, 'authapp/register.html', context)
 
 
 def logout(request):
