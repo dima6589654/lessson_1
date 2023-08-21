@@ -19,7 +19,7 @@ class UserLoginForm(AuthenticationForm):
 
     def clean_username(self):
         val = self.cleaned_data['username']
-        if val == 'admin':
+        if val == 'admin1':
             raise ValidationError("Такое имя пользователя не допускается")
         return val
 
