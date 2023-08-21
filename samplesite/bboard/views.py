@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.forms import modelformset_factory, inlineformset_factory
 from django.views.generic import ArchiveIndexView, MonthArchiveView, RedirectView
 
 from bboard.forms import BbForm
@@ -6,7 +7,7 @@ from bboard.models import Bb, Rubric
 from django.db.models import Min, Max, Count
 from django.http import HttpResponseRedirect, HttpResponse, \
     HttpResponseNotFound
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy, reverse
 from django.views.generic.detail import DetailView
@@ -57,7 +58,7 @@ class BbDeleteView(DeleteView):
     success_url = reverse_lazy('index')
 
 
-def index_resp(request):
+def index_resp():
     resp = HttpResponse("Здесь будет", content_type='text/plain; charset=utf-8')
     resp.write(' главная')
     resp.writelines((' страница', ' сайта'))
@@ -83,8 +84,6 @@ def index_resp(request):
 #
 
 
-
-
 def index(request, page=1):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
@@ -101,16 +100,6 @@ def index(request, page=1):
                'bbs': bbs_paginator.object_list,
                }
     return HttpResponse(render_to_string('bboard/index.html', context, request))
-
-
-
-
-
-
-
-
-
-
 
 
 def index_old(request):
@@ -238,6 +227,10 @@ class BbAddView(FormView):
     form_class = BbForm
     initial = {'price': 0.0}
 
+    def __init__(self, **kwargs):
+        super().__init__(kwargs)
+        self.object = None
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
@@ -275,3 +268,34 @@ class BbMonthArchiveView(MonthArchiveView):
     date_field = "published"
     month_format = '%m'
     context_object_name = 'bbs'
+
+
+def rubrics(request):
+    RubricFormSet = modelformset_factory(Rubric, fields=('name',),
+                                         can_delete=True)
+    if request.method == 'POST':
+        formset = RubricFormSet(request.POST)
+        if formset.is_valid():
+            formset.save()
+            return redirect('index')
+    else:
+        formset = RubricFormSet(initial=[{'name': 'Новая рубрика'}],
+                                queryset=Rubric.objects.all()[0:10])
+    context = {'formset': formset}
+    return render(request, 'bboard/rubrics.html', context)
+
+
+def bbs(request, rubric_id):
+    BbsFormSet = inlineformset_factory(Rubric, Bb, form=BbForm, extra=1)
+    rubric = Rubric.objects.get(pk=rubric_id)
+
+    if request.method == 'POST':
+        formset = BbsFormSet(request.POST, instance=rubric)
+
+        if formset.is_valid():
+            formset.save()
+            return redirect('index')
+    else:
+        formset = BbsFormSet( instance=rubric)
+    context = {'formset': formset, 'current_rubric': rubric}
+    return render(request, 'bboard/bbs.html', context)

@@ -1,12 +1,14 @@
+import bbs as bbs
 from django.urls import path
 from django.views.generic import WeekArchiveView
 
 from bboard.models import Bb
-from bboard.views import index, detail, BbByRubricView, BbDetailView, BbAddView, BbMonthArchiveView, BbRedirectView, \
-    by_rubric
+from bboard.views import index, detail, BbByRubricView, BbDetailView, BbAddView, BbMonthArchiveView, BbRedirectView,rubrics,bbs
 
 urlpatterns = [
     path('', index, name='index'),
+    path('rubrics/', rubrics, name='rubrics'),
+    path('bbs/<int:rubric_id>/', bbs, name='bbs'),
     path('page1/<int:page>/', index, name='page1'),
     # path('<int:rubric_id>/', by_rubric, name='by_rubric'),
     path('<int:rubric_id>/', BbByRubricView.as_view(), name='by_rubric'),

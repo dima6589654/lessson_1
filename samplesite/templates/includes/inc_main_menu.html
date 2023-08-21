@@ -2,7 +2,16 @@
 <nav>
     <a href="{% url 'index' %}">Главная</a>
     <a href="{% url 'add' %}">Добавить</a>
+
+    {%if user.is_superuser%}
+    <a href="{% url 'rubrics' %}">Изменить</a>
+    {%endif%}
+
+
+
     {% for rubric in rubrics %}
+
+
 {#        <a href="{% url 'by_rubric' rubric.pk %}">#}
         <a href="{{ rubric.get_absolute_url }}">
             {{ rubric.name }}
