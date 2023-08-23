@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.forms import modelformset_factory, inlineformset_factory
 from django.views.generic import ArchiveIndexView, MonthArchiveView, RedirectView
@@ -29,11 +31,16 @@ def print_request_fields(request):
         print(f"{attr}: {value}")
 
 
-class BbCreateView(CreateView):
+# class BbCreateView(CreateView):
+# class BbCreateView(LoginRequiredMixin,CreateView):
+class BbCreateView(UserPassesTestMixin,CreateView):
     template_name = 'bboard/create.html'
     form_class = BbForm
     success_url = reverse_lazy('index')
-
+    # начало UserPassesTestMixin
+    def test_func(self):
+        return self.request.user.is_staff
+    # конец UserPassesTestMixin
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
@@ -227,10 +234,6 @@ class BbAddView(FormView):
     form_class = BbForm
     initial = {'price': 0.0}
 
-    def __init__(self, **kwargs):
-        super().__init__(kwargs)
-        self.object = None
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
@@ -270,6 +273,9 @@ class BbMonthArchiveView(MonthArchiveView):
     context_object_name = 'bbs'
 
 
+@login_required
+@user_passes_test(lambda user: user.is_staff)
+@login_required
 def rubrics(request):
     RubricFormSet = modelformset_factory(Rubric, fields=('name',),
                                          can_delete=True)
@@ -296,6 +302,6 @@ def bbs(request, rubric_id):
             formset.save()
             return redirect('index')
     else:
-        formset = BbsFormSet( instance=rubric)
+        formset = BbsFormSet(instance=rubric)
     context = {'formset': formset, 'current_rubric': rubric}
     return render(request, 'bboard/bbs.html', context)
