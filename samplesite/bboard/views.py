@@ -33,13 +33,15 @@ def print_request_fields(request):
 
 # class BbCreateView(CreateView):
 # class BbCreateView(LoginRequiredMixin,CreateView):
-class BbCreateView(UserPassesTestMixin,CreateView):
+class BbCreateView(UserPassesTestMixin, CreateView):
     template_name = 'bboard/create.html'
     form_class = BbForm
     success_url = reverse_lazy('index')
+
     # начало UserPassesTestMixin
     def test_func(self):
         return self.request.user.is_staff
+
     # конец UserPassesTestMixin
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
