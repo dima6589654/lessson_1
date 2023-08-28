@@ -10,7 +10,6 @@
     <h2>Рубрика: {{ current_rubric.name }}</h2>
     {% for bb in bbs %}
         <div>
-{#            <h2>{{ bb.title }}</h2>#}
             <a href="{% url 'detail' pk=bb.pk %}">
                 <h2>{{ bb.title_and_price }}</h2>
             </a>
@@ -24,7 +23,7 @@
     <a href="{% url 'rubric_page' bbs.previous_page_number %}"> &#9664;</a>
     &nbsp;&nbsp;&nbsp;&nbsp;
     {%endif%}
-    № {{bbs.number}} из {{ bbs.paginator.num_pages}}
+    {{bbs.number}} из {{ bbs.paginator.num_pages}}
     {% if bbs.has_next %}
         &nbsp;&nbsp;&nbsp;&nbsp;
     <a href="{% url 'rubric_page' bbs.next_page_number %}"> &#9654;</a>

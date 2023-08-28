@@ -1,19 +1,7 @@
 {% extends "layout/basic.html" %}
 {% block content %}
-<h1>страница {{page.number}}</h1>
-<p>кол-во записей {{page_count}}</p>
-
-
-
 
 {%for bb in bbs%}
-{% with bb_count=bbs.count %}
-{% if bb_count > 0 %}
-<p>Всего объявлений на сайте: {{bb_count}}</p>
-{%endif%}
-{% endwith %}
-
-
         <div class="{% cycle 'bg-sacondary' 'bg-light' %}">
             <h2 class="{{currentclass}}">
                 {#<a href="{% url 'read' bb.pk %}">#}
