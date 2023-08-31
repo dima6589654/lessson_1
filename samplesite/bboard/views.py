@@ -95,7 +95,7 @@ def index_resp():
 
 def index(request, page=1):
     bbs = Bb.objects.all()
-    rubrics = Rubric.objects.all()
+    rubrics = Rubric.objects.order_by_bb_count()
     paginator = Paginator(bbs, 7)
     try:
         bbs_paginator = paginator.get_page(page)
@@ -110,6 +110,10 @@ def index(request, page=1):
                }
     return HttpResponse(render_to_string('bboard/index.html', context, request))
 
+
+
+
+# context['rubrics'] = Rubric.bbs.order_by_bb_count()
 
 def index_old(request):
     bbs = Bb.objects.order_by('-published')
@@ -219,14 +223,16 @@ class BbRedirectView(RedirectView):
 class BbByRubricView(ListView):
     template_name = 'bboard/by_rubric.html'
     context_object_name = 'bbs'
-    paginate_by = 1
+    paginate_by = 10
 
     def get_queryset(self):
-        return Bb.objects.filter(rubric=self.kwargs['rubric_id'])
+        # return Bb.objects.filter(rubric=self.kwargs['rubric_id'])
+        return Bb.by_price.filter(rubric=self.kwargs['rubric_id'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
+        context['count_bb'] = count_bb()
         context['current_rubric'] = Rubric.objects.get(pk=self.kwargs['rubric_id'])
         return context
 
@@ -264,7 +270,9 @@ class BbIndexView(ArchiveIndexView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['rubrics'] = Rubric.objects.all()
+        # context['rubrics'] = Rubric.objects.all()
+        context['rubrics'] = Rubric.objects.order_by_bb_count()
+        # context['rubrics'] = Rubric.bbs.order_by_bb_count()
         return context
 
 
