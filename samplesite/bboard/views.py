@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.forms import modelformset_factory, inlineformset_factory
 from django.views.generic import ArchiveIndexView, MonthArchiveView, RedirectView
 
-from bboard.forms import BbForm
+from bboard.forms import BbForm, SearchForm
 from bboard.models import Bb, Rubric
 from django.db.models import Min, Max, Count
 from django.http import HttpResponseRedirect, HttpResponse, \
@@ -109,8 +109,6 @@ def index(request, page=1):
                'bbs': bbs_paginator.object_list,
                }
     return HttpResponse(render_to_string('bboard/index.html', context, request))
-
-
 
 
 # context['rubrics'] = Rubric.bbs.order_by_bb_count()
@@ -315,3 +313,19 @@ def bbs(request, rubric_id):
         formset = BbsFormSet(instance=rubric)
     context = {'formset': formset, 'current_rubric': rubric}
     return render(request, 'bboard/bbs.html', context)
+
+
+def search(request):
+    if request.method == "POST":
+        sf = SearchForm(request.POST)
+        if sf.is_valid():
+            keyword = sf.cleaned_data['keyword']
+            rubric_id = sf.cleaned_data['rubric'].pk
+            bbs = Bb.objects.filter(title__iregex=keyword,
+                                    rubric=rubric_id)
+            context = {'bbs': bbs, "form": sf}
+            return render(request, 'bboard/search_results.html', context)
+    else:
+        sf = SearchForm()
+    context = {'form': sf}
+    return render(request, 'bboard/search.html', context)

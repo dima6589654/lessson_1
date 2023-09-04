@@ -1,0 +1,25 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Поиск{% endblock %}
+
+{% block content %}
+    <h2>Поиск</h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit">Искать</button>
+
+
+    </form>
+
+{%for bb in bbs%}
+        <div class="{% cycle 'bg-sacondary' 'bg-light' %}">
+            <h3>{{ bb.title}}</h3>
+            <p>{{ bb.content}}</p>
+            <p><a href="{{ bb.rubric.get_absolute_url }}">
+                {{ bb.rubric.name}}</a></p>
+            <p>{{ bb.published|date:"DATETIME_FORMAT" }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

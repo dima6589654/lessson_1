@@ -3,7 +3,8 @@ from django.urls import path
 from django.views.generic import WeekArchiveView
 
 from bboard.models import Bb
-from bboard.views import index, detail, BbByRubricView, BbDetailView, BbAddView, BbMonthArchiveView, BbRedirectView,rubrics,bbs
+from bboard.views import index, detail, BbByRubricView, BbDetailView, BbAddView, BbMonthArchiveView, BbRedirectView, \
+    rubrics, bbs, search
 
 urlpatterns = [
     path('', index, name='index'),
@@ -20,5 +21,5 @@ urlpatterns = [
     path('<int:year>/week/<int:week>/',
          WeekArchiveView.as_view(model=Bb, date_field="published", context_object_name='bbs')),
     path('detail/<int:year>/<int:month>/<int:day>/<int:pk>/', BbRedirectView.as_view(), name='old.detail'),
-
+    path('search/', search, name='search'),
 ]
