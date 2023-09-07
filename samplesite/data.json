@@ -1,1 +1,824 @@
-[{"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2023-06-05T10:55:39.032Z", "user": 1, "content_type": null, "object_id": "2", "object_repr": "beaver", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2023-08-23T09:30:24.071Z", "user": 1, "content_type": null, "object_id": "1", "object_repr": "Модераторы", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "auth.group", "pk": 1, "fields": {"name": "Модераторы", "permissions": []}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$600000$DoiI8iF5Fmm1bLQqQP7dvN$GmXMr5G5B16i63vix9pfoyWMoYuNFQDESBPC6SpUrR0=", "last_login": "2023-09-04T09:23:57.479Z", "is_superuser": true, "username": "admin", "first_name": "", "last_name": "", "email": "admin@bb.local", "is_staff": true, "is_active": true, "date_joined": "2023-05-17T11:18:26.719Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 2, "fields": {"password": "pbkdf2_sha256$600000$nTb0XYidOpqf1uoneDoFH6$gi9bvrBG6CL0rHjnb0/8z2CW5TAAZvw03gjo4gqFBTo=", "last_login": null, "is_superuser": false, "username": "beaver", "first_name": "", "last_name": "", "email": "", "is_staff": false, "is_active": true, "date_joined": "2023-06-05T10:55:38.742Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 3, "fields": {"password": "", "last_login": null, "is_superuser": false, "username": "admin23", "first_name": "Админушка", "last_name": "Админская", "email": "admin23@mail.kz", "is_staff": false, "is_active": true, "date_joined": "2023-08-14T11:31:48.264Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 4, "fields": {"password": "pbkdf2_sha256$600000$I6mqu4iFClp8JVbYot9H0O$kMkYDKaCXo7pHRLfANG/f1rbo72FgA6qfdNgNUJeZuQ=", "last_login": "2023-08-14T11:39:52.865Z", "is_superuser": false, "username": "admin123", "first_name": "Админушка", "last_name": "Админская", "email": "admin123@mail.kz", "is_staff": false, "is_active": true, "date_joined": "2023-08-14T11:39:45.007Z", "groups": [], "user_permissions": []}}, {"model": "sessions.session", "pk": "61uqfdsgxhgm7wr2ypoc720lvzhegqoq", "fields": {"session_data": ".eJxVjEEOwiAQRe_C2hAYGEpduvcMZIBBqoYmpV0Z765NutDtf-_9lwi0rTVsnZcwZXEWWpx-t0jpwW0H-U7tNss0t3WZotwVedAur3Pm5-Vw_w4q9fqtDTrOOpY0AI1GA5SkDTkFmLxzYJGjscoWRijo0UZmADBOaUejH7R4fwDN0jbU:1qYlz4:Bl37ULfo16PV6lQ8gfdvtRHA71nL7QPpOKlciB6O4mg", "expire_date": "2023-09-06T11:25:10.978Z"}}, {"model": "sessions.session", "pk": "832i0ctglig6r2rm08rd7r8wow13iksy", "fields": {"session_data": ".eJxVjMsOwiAQRf-FtSEzLSC4dO83kBkeUjWQlHZl_HfbpAvd3nPOfQtP61L82tPspyguAsXpd2MKz1R3EB9U702GVpd5Yrkr8qBd3lpMr-vh_h0U6mWrAQFsGJkZnNZWDVlbVjzEjIDqnHNyZBzqMYzgGMlsOBMTaeOsoig-X8xvN8I:1qYkyP:3K4ERnSPeH1HMnzdgGjjx-jpDZQi3IuzyUR9U_2hjfM", "expire_date": "2023-09-06T10:20:25.244Z"}}, {"model": "sessions.session", "pk": "jksb55u29mty6uu03hd1dpdmnlobwg9t", "fields": {"session_data": ".eJxVjMsOwiAQRf-FtSEzLSC4dO83kBkeUjWQlHZl_HfbpAvd3nPOfQtP61L82tPspyguAsXpd2MKz1R3EB9U702GVpd5Yrkr8qBd3lpMr-vh_h0U6mWrAQFsGJkZnNZWDVlbVjzEjIDqnHNyZBzqMYzgGMlsOBMTaeOsoig-X8xvN8I:1pzFJG:3Yld1BeoHE3Dy1-YFzbBK5g8xpXUEsO2ovQNj0p2M8g", "expire_date": "2023-05-31T11:27:10.019Z"}}, {"model": "sessions.session", "pk": "mm4y7kltou9cyjlwowda3k030yd6mrcp", "fields": {"session_data": ".eJxVjMEOwiAQRP-FsyECLqhH7_0GsssuUjWQlPZk_HfbpAe9zGHem3mriMtc4tJliiOrqzLq8NsRpqfUDfAD673p1Oo8jaQ3Re-066GxvG67-3dQsJd1fQRnCJDYn8ABBAExmD0Y7ynkNRMI-0zGWpOEIaRzyMTOwoV9CKQ-X9elN9o:1qd5oL:-kkRzu2jiQhwfPmWo-P7cl_Zp5Bs_8NEex0m0oasPgc", "expire_date": "2023-09-18T09:23:57.483Z"}}, {"model": "sessions.session", "pk": "mnenqa147bffc6rp8lzrbwqjwqtu5c6z", "fields": {"session_data": ".eJxVjMEOwiAQRP-FsyECLqhH7_0GsssuUjWQlPZk_HfbpAe9zGHem3mriMtc4tJliiOrqzLq8NsRpqfUDfAD673p1Oo8jaQ3Re-066GxvG67-3dQsJd1fQRnCJDYn8ABBAExmD0Y7ynkNRMI-0zGWpOEIaRzyMTOwoV9CKQ-X9elN9o:1qZ8Km:MslNpZVzn8G-j1T2xp5n2hndM6Nt8P1Txk09psyp_ho", "expire_date": "2023-09-07T11:17:04.295Z"}}, {"model": "captcha.captchastore", "pk": 1, "fields": {"challenge": "RMQT", "response": "rmqt", "hashkey": "55c57468612fbc10caa0432e9af35b2eb9f71f72", "expiration": "2023-09-04T10:56:23.587Z"}}, {"model": "captcha.captchastore", "pk": 3, "fields": {"challenge": "SBSJ", "response": "sbsj", "hashkey": "f82654a49baa0017ed2ef0b21264513925895ad8", "expiration": "2023-09-04T11:01:15.967Z"}}, {"model": "captcha.captchastore", "pk": 4, "fields": {"challenge": "5+7=", "response": "12", "hashkey": "73f7a3bfb6f1cdc485b88429c269051d3b7e64cc", "expiration": "2023-09-04T11:04:53.301Z"}}, {"model": "captcha.captchastore", "pk": 5, "fields": {"challenge": "9*8=", "response": "72", "hashkey": "1b1e41c68cc736f4c87395c4b047b86049088d4a", "expiration": "2023-09-04T11:04:53.964Z"}}, {"model": "captcha.captchastore", "pk": 6, "fields": {"challenge": "6*9=", "response": "54", "hashkey": "c613787d5c057a60591892ae86cfa762ee840884", "expiration": "2023-09-04T11:04:54.181Z"}}, {"model": "captcha.captchastore", "pk": 7, "fields": {"challenge": "2+1=", "response": "3", "hashkey": "259463828e98c22fe1fb40eda4486ef9fc8b9a0c", "expiration": "2023-09-04T11:04:54.373Z"}}, {"model": "captcha.captchastore", "pk": 8, "fields": {"challenge": "10*5=", "response": "50", "hashkey": "ed564c384bbd31cedf5ff539b3f59023b572ec2c", "expiration": "2023-09-04T11:04:54.556Z"}}, {"model": "captcha.captchastore", "pk": 9, "fields": {"challenge": "7*8=", "response": "56", "hashkey": "df66444d7d8ff91b34887f52f184c5b063ce6e89", "expiration": "2023-09-04T11:04:54.724Z"}}, {"model": "captcha.captchastore", "pk": 10, "fields": {"challenge": "7-4=", "response": "3", "hashkey": "252769a9946654ffb5e0c794bcec9a9347722984", "expiration": "2023-09-04T11:04:54.885Z"}}, {"model": "captcha.captchastore", "pk": 11, "fields": {"challenge": "10-6=", "response": "4", "hashkey": "51a82f69dad27e6556a9a6207765ef1e3762e683", "expiration": "2023-09-04T11:04:55.052Z"}}, {"model": "captcha.captchastore", "pk": 12, "fields": {"challenge": "1+1=", "response": "2", "hashkey": "395c9b7cf8e2ea6a8c8927fbce1f1a16410f0365", "expiration": "2023-09-04T11:04:55.236Z"}}, {"model": "captcha.captchastore", "pk": 13, "fields": {"challenge": "8+1=", "response": "9", "hashkey": "9c946e8e0568198ea47e52b4209b8e42ffe0366f", "expiration": "2023-09-04T11:04:55.436Z"}}, {"model": "captcha.captchastore", "pk": 14, "fields": {"challenge": "3+1=", "response": "4", "hashkey": "1e76492763b6b0691b2733d2d9581064c28bb84e", "expiration": "2023-09-04T11:04:55.644Z"}}, {"model": "captcha.captchastore", "pk": 15, "fields": {"challenge": "6-1=", "response": "5", "hashkey": "32fa50621eebab40914e0c368c341de8bf090bcb", "expiration": "2023-09-04T11:04:55.828Z"}}, {"model": "captcha.captchastore", "pk": 16, "fields": {"challenge": "10-8=", "response": "2", "hashkey": "6768cb9853d2367ed2433150e1a354de4d25c48f", "expiration": "2023-09-04T11:04:56.012Z"}}, {"model": "captcha.captchastore", "pk": 17, "fields": {"challenge": "10-7=", "response": "3", "hashkey": "887d88f13a28454178fb6103b72039748e9f0a51", "expiration": "2023-09-04T11:04:56.214Z"}}, {"model": "captcha.captchastore", "pk": 18, "fields": {"challenge": "7-4=", "response": "3", "hashkey": "0461c741665fc0b23e0476928ada304ad9a9564b", "expiration": "2023-09-04T11:04:56.405Z"}}, {"model": "captcha.captchastore", "pk": 19, "fields": {"challenge": "3-1=", "response": "2", "hashkey": "87c0d60849c54f45ecaba5ec63b9f88684b8aef2", "expiration": "2023-09-04T11:04:56.596Z"}}, {"model": "captcha.captchastore", "pk": 20, "fields": {"challenge": "1-1=", "response": "0", "hashkey": "7dcc4a4844350881624d929149540f097d0f1127", "expiration": "2023-09-04T11:04:57.132Z"}}, {"model": "captcha.captchastore", "pk": 21, "fields": {"challenge": "9-6=", "response": "3", "hashkey": "eef4f7ce816ec5556bdcff85086264e18195f22f", "expiration": "2023-09-04T11:04:57.388Z"}}, {"model": "captcha.captchastore", "pk": 22, "fields": {"challenge": "8-1=", "response": "7", "hashkey": "1006c9397255829d4032a141d4cac5a2dc2fc99e", "expiration": "2023-09-04T11:04:57.597Z"}}, {"model": "captcha.captchastore", "pk": 23, "fields": {"challenge": "10*2=", "response": "20", "hashkey": "18e0d9b437a8bcc04cf7ba76012408bac3a209c9", "expiration": "2023-09-04T11:04:57.813Z"}}, {"model": "captcha.captchastore", "pk": 24, "fields": {"challenge": "4-2=", "response": "2", "hashkey": "1011239db4627450991074e487f7e8c8ffc70963", "expiration": "2023-09-04T11:04:58.053Z"}}, {"model": "captcha.captchastore", "pk": 25, "fields": {"challenge": "5-2=", "response": "3", "hashkey": "2989b9f4a0755cd4e638078f6a239642adbe28a9", "expiration": "2023-09-04T11:04:58.757Z"}}, {"model": "captcha.captchastore", "pk": 26, "fields": {"challenge": "7-6=", "response": "1", "hashkey": "edda022f3c5e5653edd21d12512d795013a11236", "expiration": "2023-09-04T11:04:59.612Z"}}, {"model": "captcha.captchastore", "pk": 27, "fields": {"challenge": "10-5=", "response": "5", "hashkey": "9dbc2081b800bcd44be8d7707b8a5de2cbced520", "expiration": "2023-09-04T11:04:59.820Z"}}, {"model": "captcha.captchastore", "pk": 28, "fields": {"challenge": "10*6=", "response": "60", "hashkey": "9de1afb60fb92fa97210c9d39dc1dfaf00634c9b", "expiration": "2023-09-04T11:05:00.013Z"}}, {"model": "captcha.captchastore", "pk": 29, "fields": {"challenge": "2+10=", "response": "12", "hashkey": "6dd082526e7dc351aebb53d755095aaf6e8bd3ff", "expiration": "2023-09-04T11:05:00.204Z"}}, {"model": "captcha.captchastore", "pk": 30, "fields": {"challenge": "5+7=", "response": "12", "hashkey": "6392059fb88e1eefd58f9a72009fd9ed6fa81718", "expiration": "2023-09-04T11:05:00.396Z"}}, {"model": "captcha.captchastore", "pk": 31, "fields": {"challenge": "3*3=", "response": "9", "hashkey": "0b23c00d42d20fcb62c8185d16e17fe908be5874", "expiration": "2023-09-04T11:05:00.612Z"}}, {"model": "captcha.captchastore", "pk": 32, "fields": {"challenge": "7+9=", "response": "16", "hashkey": "7f8ab40cce8d1c66525b15b70806937ec7703f0e", "expiration": "2023-09-04T11:20:12.648Z"}}, {"model": "captcha.captchastore", "pk": 33, "fields": {"challenge": "5+7=", "response": "12", "hashkey": "8551913f5a8fe7f72a85665c6591851c65d657c0", "expiration": "2023-09-04T11:20:14.167Z"}}, {"model": "captcha.captchastore", "pk": 34, "fields": {"challenge": "3+3=", "response": "6", "hashkey": "26f98c4d43ecfd479fd8a2b73475fd680a8b9072", "expiration": "2023-09-04T11:20:15.230Z"}}, {"model": "captcha.captchastore", "pk": 35, "fields": {"challenge": "1*2=", "response": "2", "hashkey": "7e63b66d62146c5a4d9f4ab42b8029fa660c8629", "expiration": "2023-09-04T11:20:16.142Z"}}, {"model": "bboard.rubric", "pk": 1, "fields": {"name": "Недвижимость"}}, {"model": "bboard.rubric", "pk": 2, "fields": {"name": "Транспорт"}}, {"model": "bboard.rubric", "pk": 3, "fields": {"name": "Бытовая техника"}}, {"model": "bboard.rubric", "pk": 4, "fields": {"name": "Сельхозтехника"}}, {"model": "bboard.rubric", "pk": 5, "fields": {"name": "Мебель"}}, {"model": "bboard.rubric", "pk": 6, "fields": {"name": "Сантехника"}}, {"model": "bboard.rubric", "pk": 7, "fields": {"name": "Растения"}}, {"model": "bboard.bb", "pk": 1, "fields": {"rubric": 1, "title": "Дача", "kind": "s", "content": "Лень писать", "price": 500000.0, "published": "2023-05-17T11:18:26.703Z"}}, {"model": "bboard.bb", "pk": 2, "fields": {"rubric": 2, "title": "Бобёр ездовой", "kind": "s", "content": "Плохо строит плотины", "price": 2777.5, "published": "2023-05-17T11:18:26.703Z"}}, {"model": "bboard.bb", "pk": 4, "fields": {"rubric": 5, "title": "Диван", "kind": "s", "content": "Продавленный", "price": 100.0, "published": "2023-05-24T09:37:03.541Z"}}, {"model": "bboard.bb", "pk": 5, "fields": {"rubric": 6, "title": "раковина", "kind": "s", "content": "сильно битая", "price": 49.5, "published": "2023-05-24T09:40:17.863Z"}}, {"model": "bboard.bb", "pk": 6, "fields": {"rubric": 4, "title": "Мотыга", "kind": "s", "content": "Ржавая", "price": 49.5, "published": "2023-05-24T09:45:21.460Z"}}, {"model": "bboard.bb", "pk": 7, "fields": {"rubric": 4, "title": "Лопата", "kind": "s", "content": "Почти новая", "price": 500.0, "published": "2023-05-24T09:49:24.986Z"}}, {"model": "bboard.bb", "pk": 8, "fields": {"rubric": 3, "title": "Пылесос", "kind": "s", "content": "Хороший, мощный", "price": 500.0, "published": "2023-05-24T11:32:44.018Z"}}, {"model": "bboard.bb", "pk": 9, "fields": {"rubric": 3, "title": "Стиральная машина", "kind": "s", "content": "Автоматическая", "price": 500.0, "published": "2023-05-24T11:32:44.018Z"}}, {"model": "bboard.bb", "pk": 10, "fields": {"rubric": 7, "title": "Какой-то товар", "kind": "s", "content": "Что-то продаётся", "price": 1.0000005756785787e+22, "published": "2023-06-12T09:52:57.842Z"}}, {"model": "bboard.bb", "pk": 11, "fields": {"rubric": 7, "title": "Ещё один", "kind": "s", "content": "Ещё один", "price": 6.0, "published": "2023-06-12T10:09:03.058Z"}}, {"model": "bboard.bb", "pk": 12, "fields": {"rubric": 1, "title": "Книга", "kind": "s", "content": "Очень толстая", "price": 100500.0, "published": "2023-06-14T09:37:06.493Z"}}, {"model": "bboard.bb", "pk": 13, "fields": {"rubric": 7, "title": "Бублик", "kind": "s", "content": "В нём есть дырка", "price": 0.0, "published": "2023-06-14T10:59:07.138Z"}}, {"model": "bboard.bb", "pk": 14, "fields": {"rubric": 4, "title": "Симка", "kind": "s", "content": "Хамка", "price": 2.0, "published": "2023-08-16T09:47:48.102Z"}}, {"model": "bboard.bb", "pk": 15, "fields": {"rubric": 1, "title": "Прошлогодний снег 2021", "kind": "s", "content": "Очень прошлогодний, просто позапрошлогодний", "price": 1.0, "published": "2023-08-16T09:55:34.266Z"}}, {"model": "bboard.bb", "pk": 17, "fields": {"rubric": 1, "title": "Жёлтый снег", "kind": "s", "content": "Не употреблять в пищу", "price": 999.0, "published": "2023-08-21T10:57:06.653Z"}}, {"model": "bboard.bb", "pk": 18, "fields": {"rubric": 1, "title": "тату студия", "kind": "s", "content": "we", "price": 20000.0, "published": "2023-09-04T10:53:14.549Z"}}, {"model": "testapp.advuser", "pk": 1, "fields": {"is_activated": true, "user": 1}}, {"model": "testapp.spare", "pk": 1, "fields": {"name": "Болт"}}, {"model": "testapp.spare", "pk": 2, "fields": {"name": "Гайка"}}, {"model": "testapp.spare", "pk": 3, "fields": {"name": "Шайба"}}, {"model": "testapp.spare", "pk": 4, "fields": {"name": "Шпилька"}}, {"model": "testapp.machine", "pk": 1, "fields": {"name": "Самосвал"}}, {"model": "testapp.machine", "pk": 2, "fields": {"name": "Тепловоз"}}, {"model": "testapp.kit", "pk": 1, "fields": {"machine": 1, "spare": 1, "count": 5}}, {"model": "testapp.kit", "pk": 2, "fields": {"machine": 1, "spare": 2, "count": 100}}, {"model": "testapp.kit", "pk": 4, "fields": {"machine": 2, "spare": 1, "count": 49}}, {"model": "testapp.kit", "pk": 5, "fields": {"machine": 2, "spare": 3, "count": 49}}, {"model": "testapp.sms", "pk": 1, "fields": {"comment": "Привет, бобры!", "sender": 1, "receiver": 2}}]
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-06-05T10:55:39.032Z",
+      "user": 1,
+      "content_type": null,
+      "object_id": "2",
+      "object_repr": "beaver",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-08-23T09:30:24.071Z",
+      "user": 1,
+      "content_type": null,
+      "object_id": "1",
+      "object_repr": "Модераторы",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "Модераторы",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$DoiI8iF5Fmm1bLQqQP7dvN$GmXMr5G5B16i63vix9pfoyWMoYuNFQDESBPC6SpUrR0=",
+      "last_login": "2023-09-04T09:23:57.479Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@bb.local",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-05-17T11:18:26.719Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$nTb0XYidOpqf1uoneDoFH6$gi9bvrBG6CL0rHjnb0/8z2CW5TAAZvw03gjo4gqFBTo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "beaver",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-06-05T10:55:38.742Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "admin23",
+      "first_name": "Админушка",
+      "last_name": "Админская",
+      "email": "admin23@mail.kz",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-08-14T11:31:48.264Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$I6mqu4iFClp8JVbYot9H0O$kMkYDKaCXo7pHRLfANG/f1rbo72FgA6qfdNgNUJeZuQ=",
+      "last_login": "2023-08-14T11:39:52.865Z",
+      "is_superuser": false,
+      "username": "admin123",
+      "first_name": "Админушка",
+      "last_name": "Админская",
+      "email": "admin123@mail.kz",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-08-14T11:39:45.007Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "61uqfdsgxhgm7wr2ypoc720lvzhegqoq",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hAYGEpduvcMZIBBqoYmpV0Z765NutDtf-_9lwi0rTVsnZcwZXEWWpx-t0jpwW0H-U7tNss0t3WZotwVedAur3Pm5-Vw_w4q9fqtDTrOOpY0AI1GA5SkDTkFmLxzYJGjscoWRijo0UZmADBOaUejH7R4fwDN0jbU:1qYlz4:Bl37ULfo16PV6lQ8gfdvtRHA71nL7QPpOKlciB6O4mg",
+      "expire_date": "2023-09-06T11:25:10.978Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "832i0ctglig6r2rm08rd7r8wow13iksy",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSEzLSC4dO83kBkeUjWQlHZl_HfbpAvd3nPOfQtP61L82tPspyguAsXpd2MKz1R3EB9U702GVpd5Yrkr8qBd3lpMr-vh_h0U6mWrAQFsGJkZnNZWDVlbVjzEjIDqnHNyZBzqMYzgGMlsOBMTaeOsoig-X8xvN8I:1qYkyP:3K4ERnSPeH1HMnzdgGjjx-jpDZQi3IuzyUR9U_2hjfM",
+      "expire_date": "2023-09-06T10:20:25.244Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "jksb55u29mty6uu03hd1dpdmnlobwg9t",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSEzLSC4dO83kBkeUjWQlHZl_HfbpAvd3nPOfQtP61L82tPspyguAsXpd2MKz1R3EB9U702GVpd5Yrkr8qBd3lpMr-vh_h0U6mWrAQFsGJkZnNZWDVlbVjzEjIDqnHNyZBzqMYzgGMlsOBMTaeOsoig-X8xvN8I:1pzFJG:3Yld1BeoHE3Dy1-YFzbBK5g8xpXUEsO2ovQNj0p2M8g",
+      "expire_date": "2023-05-31T11:27:10.019Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "mm4y7kltou9cyjlwowda3k030yd6mrcp",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyECLqhH7_0GsssuUjWQlPZk_HfbpAe9zGHem3mriMtc4tJliiOrqzLq8NsRpqfUDfAD673p1Oo8jaQ3Re-066GxvG67-3dQsJd1fQRnCJDYn8ABBAExmD0Y7ynkNRMI-0zGWpOEIaRzyMTOwoV9CKQ-X9elN9o:1qd5oL:-kkRzu2jiQhwfPmWo-P7cl_Zp5Bs_8NEex0m0oasPgc",
+      "expire_date": "2023-09-18T09:23:57.483Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "mnenqa147bffc6rp8lzrbwqjwqtu5c6z",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyECLqhH7_0GsssuUjWQlPZk_HfbpAe9zGHem3mriMtc4tJliiOrqzLq8NsRpqfUDfAD673p1Oo8jaQ3Re-066GxvG67-3dQsJd1fQRnCJDYn8ABBAExmD0Y7ynkNRMI-0zGWpOEIaRzyMTOwoV9CKQ-X9elN9o:1qZ8Km:MslNpZVzn8G-j1T2xp5n2hndM6Nt8P1Txk09psyp_ho",
+      "expire_date": "2023-09-07T11:17:04.295Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 1,
+    "fields": {
+      "challenge": "RMQT",
+      "response": "rmqt",
+      "hashkey": "55c57468612fbc10caa0432e9af35b2eb9f71f72",
+      "expiration": "2023-09-04T10:56:23.587Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 3,
+    "fields": {
+      "challenge": "SBSJ",
+      "response": "sbsj",
+      "hashkey": "f82654a49baa0017ed2ef0b21264513925895ad8",
+      "expiration": "2023-09-04T11:01:15.967Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 4,
+    "fields": {
+      "challenge": "5+7=",
+      "response": "12",
+      "hashkey": "73f7a3bfb6f1cdc485b88429c269051d3b7e64cc",
+      "expiration": "2023-09-04T11:04:53.301Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 5,
+    "fields": {
+      "challenge": "9*8=",
+      "response": "72",
+      "hashkey": "1b1e41c68cc736f4c87395c4b047b86049088d4a",
+      "expiration": "2023-09-04T11:04:53.964Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 6,
+    "fields": {
+      "challenge": "6*9=",
+      "response": "54",
+      "hashkey": "c613787d5c057a60591892ae86cfa762ee840884",
+      "expiration": "2023-09-04T11:04:54.181Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 7,
+    "fields": {
+      "challenge": "2+1=",
+      "response": "3",
+      "hashkey": "259463828e98c22fe1fb40eda4486ef9fc8b9a0c",
+      "expiration": "2023-09-04T11:04:54.373Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 8,
+    "fields": {
+      "challenge": "10*5=",
+      "response": "50",
+      "hashkey": "ed564c384bbd31cedf5ff539b3f59023b572ec2c",
+      "expiration": "2023-09-04T11:04:54.556Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 9,
+    "fields": {
+      "challenge": "7*8=",
+      "response": "56",
+      "hashkey": "df66444d7d8ff91b34887f52f184c5b063ce6e89",
+      "expiration": "2023-09-04T11:04:54.724Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 10,
+    "fields": {
+      "challenge": "7-4=",
+      "response": "3",
+      "hashkey": "252769a9946654ffb5e0c794bcec9a9347722984",
+      "expiration": "2023-09-04T11:04:54.885Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 11,
+    "fields": {
+      "challenge": "10-6=",
+      "response": "4",
+      "hashkey": "51a82f69dad27e6556a9a6207765ef1e3762e683",
+      "expiration": "2023-09-04T11:04:55.052Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 12,
+    "fields": {
+      "challenge": "1+1=",
+      "response": "2",
+      "hashkey": "395c9b7cf8e2ea6a8c8927fbce1f1a16410f0365",
+      "expiration": "2023-09-04T11:04:55.236Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 13,
+    "fields": {
+      "challenge": "8+1=",
+      "response": "9",
+      "hashkey": "9c946e8e0568198ea47e52b4209b8e42ffe0366f",
+      "expiration": "2023-09-04T11:04:55.436Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 14,
+    "fields": {
+      "challenge": "3+1=",
+      "response": "4",
+      "hashkey": "1e76492763b6b0691b2733d2d9581064c28bb84e",
+      "expiration": "2023-09-04T11:04:55.644Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 15,
+    "fields": {
+      "challenge": "6-1=",
+      "response": "5",
+      "hashkey": "32fa50621eebab40914e0c368c341de8bf090bcb",
+      "expiration": "2023-09-04T11:04:55.828Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 16,
+    "fields": {
+      "challenge": "10-8=",
+      "response": "2",
+      "hashkey": "6768cb9853d2367ed2433150e1a354de4d25c48f",
+      "expiration": "2023-09-04T11:04:56.012Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 17,
+    "fields": {
+      "challenge": "10-7=",
+      "response": "3",
+      "hashkey": "887d88f13a28454178fb6103b72039748e9f0a51",
+      "expiration": "2023-09-04T11:04:56.214Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 18,
+    "fields": {
+      "challenge": "7-4=",
+      "response": "3",
+      "hashkey": "0461c741665fc0b23e0476928ada304ad9a9564b",
+      "expiration": "2023-09-04T11:04:56.405Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 19,
+    "fields": {
+      "challenge": "3-1=",
+      "response": "2",
+      "hashkey": "87c0d60849c54f45ecaba5ec63b9f88684b8aef2",
+      "expiration": "2023-09-04T11:04:56.596Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 20,
+    "fields": {
+      "challenge": "1-1=",
+      "response": "0",
+      "hashkey": "7dcc4a4844350881624d929149540f097d0f1127",
+      "expiration": "2023-09-04T11:04:57.132Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 21,
+    "fields": {
+      "challenge": "9-6=",
+      "response": "3",
+      "hashkey": "eef4f7ce816ec5556bdcff85086264e18195f22f",
+      "expiration": "2023-09-04T11:04:57.388Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 22,
+    "fields": {
+      "challenge": "8-1=",
+      "response": "7",
+      "hashkey": "1006c9397255829d4032a141d4cac5a2dc2fc99e",
+      "expiration": "2023-09-04T11:04:57.597Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 23,
+    "fields": {
+      "challenge": "10*2=",
+      "response": "20",
+      "hashkey": "18e0d9b437a8bcc04cf7ba76012408bac3a209c9",
+      "expiration": "2023-09-04T11:04:57.813Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 24,
+    "fields": {
+      "challenge": "4-2=",
+      "response": "2",
+      "hashkey": "1011239db4627450991074e487f7e8c8ffc70963",
+      "expiration": "2023-09-04T11:04:58.053Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 25,
+    "fields": {
+      "challenge": "5-2=",
+      "response": "3",
+      "hashkey": "2989b9f4a0755cd4e638078f6a239642adbe28a9",
+      "expiration": "2023-09-04T11:04:58.757Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 26,
+    "fields": {
+      "challenge": "7-6=",
+      "response": "1",
+      "hashkey": "edda022f3c5e5653edd21d12512d795013a11236",
+      "expiration": "2023-09-04T11:04:59.612Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 27,
+    "fields": {
+      "challenge": "10-5=",
+      "response": "5",
+      "hashkey": "9dbc2081b800bcd44be8d7707b8a5de2cbced520",
+      "expiration": "2023-09-04T11:04:59.820Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 28,
+    "fields": {
+      "challenge": "10*6=",
+      "response": "60",
+      "hashkey": "9de1afb60fb92fa97210c9d39dc1dfaf00634c9b",
+      "expiration": "2023-09-04T11:05:00.013Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 29,
+    "fields": {
+      "challenge": "2+10=",
+      "response": "12",
+      "hashkey": "6dd082526e7dc351aebb53d755095aaf6e8bd3ff",
+      "expiration": "2023-09-04T11:05:00.204Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 30,
+    "fields": {
+      "challenge": "5+7=",
+      "response": "12",
+      "hashkey": "6392059fb88e1eefd58f9a72009fd9ed6fa81718",
+      "expiration": "2023-09-04T11:05:00.396Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 31,
+    "fields": {
+      "challenge": "3*3=",
+      "response": "9",
+      "hashkey": "0b23c00d42d20fcb62c8185d16e17fe908be5874",
+      "expiration": "2023-09-04T11:05:00.612Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 32,
+    "fields": {
+      "challenge": "7+9=",
+      "response": "16",
+      "hashkey": "7f8ab40cce8d1c66525b15b70806937ec7703f0e",
+      "expiration": "2023-09-04T11:20:12.648Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 33,
+    "fields": {
+      "challenge": "5+7=",
+      "response": "12",
+      "hashkey": "8551913f5a8fe7f72a85665c6591851c65d657c0",
+      "expiration": "2023-09-04T11:20:14.167Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 34,
+    "fields": {
+      "challenge": "3+3=",
+      "response": "6",
+      "hashkey": "26f98c4d43ecfd479fd8a2b73475fd680a8b9072",
+      "expiration": "2023-09-04T11:20:15.230Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 35,
+    "fields": {
+      "challenge": "1*2=",
+      "response": "2",
+      "hashkey": "7e63b66d62146c5a4d9f4ab42b8029fa660c8629",
+      "expiration": "2023-09-04T11:20:16.142Z"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 1,
+    "fields": {
+      "name": "Недвижимость"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 2,
+    "fields": {
+      "name": "Транспорт"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 3,
+    "fields": {
+      "name": "Бытовая техника"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 4,
+    "fields": {
+      "name": "Сельхозтехника"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 5,
+    "fields": {
+      "name": "Мебель"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 6,
+    "fields": {
+      "name": "Сантехника"
+    }
+  },
+  {
+    "model": "bboard.rubric",
+    "pk": 7,
+    "fields": {
+      "name": "Растения"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 1,
+    "fields": {
+      "rubric": 1,
+      "title": "Дача",
+      "kind": "s",
+      "content": "Лень писать",
+      "price": 500000.0,
+      "published": "2023-05-17T11:18:26.703Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 2,
+    "fields": {
+      "rubric": 2,
+      "title": "Бобёр ездовой",
+      "kind": "s",
+      "content": "Плохо строит плотины",
+      "price": 2777.5,
+      "published": "2023-05-17T11:18:26.703Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 4,
+    "fields": {
+      "rubric": 5,
+      "title": "Диван",
+      "kind": "s",
+      "content": "Продавленный",
+      "price": 100.0,
+      "published": "2023-05-24T09:37:03.541Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 5,
+    "fields": {
+      "rubric": 6,
+      "title": "раковина",
+      "kind": "s",
+      "content": "сильно битая",
+      "price": 49.5,
+      "published": "2023-05-24T09:40:17.863Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 6,
+    "fields": {
+      "rubric": 4,
+      "title": "Мотыга",
+      "kind": "s",
+      "content": "Ржавая",
+      "price": 49.5,
+      "published": "2023-05-24T09:45:21.460Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 7,
+    "fields": {
+      "rubric": 4,
+      "title": "Лопата",
+      "kind": "s",
+      "content": "Почти новая",
+      "price": 500.0,
+      "published": "2023-05-24T09:49:24.986Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 8,
+    "fields": {
+      "rubric": 3,
+      "title": "Пылесос",
+      "kind": "s",
+      "content": "Хороший, мощный",
+      "price": 500.0,
+      "published": "2023-05-24T11:32:44.018Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 9,
+    "fields": {
+      "rubric": 3,
+      "title": "Стиральная машина",
+      "kind": "s",
+      "content": "Автоматическая",
+      "price": 500.0,
+      "published": "2023-05-24T11:32:44.018Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 10,
+    "fields": {
+      "rubric": 7,
+      "title": "Какой-то товар",
+      "kind": "s",
+      "content": "Что-то продаётся",
+      "price": 1.0000005756785787e+22,
+      "published": "2023-06-12T09:52:57.842Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 11,
+    "fields": {
+      "rubric": 7,
+      "title": "Ещё один",
+      "kind": "s",
+      "content": "Ещё один",
+      "price": 6.0,
+      "published": "2023-06-12T10:09:03.058Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 12,
+    "fields": {
+      "rubric": 1,
+      "title": "Книга",
+      "kind": "s",
+      "content": "Очень толстая",
+      "price": 100500.0,
+      "published": "2023-06-14T09:37:06.493Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 13,
+    "fields": {
+      "rubric": 7,
+      "title": "Бублик",
+      "kind": "s",
+      "content": "В нём есть дырка",
+      "price": 0.0,
+      "published": "2023-06-14T10:59:07.138Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 14,
+    "fields": {
+      "rubric": 4,
+      "title": "Симка",
+      "kind": "s",
+      "content": "Хамка",
+      "price": 2.0,
+      "published": "2023-08-16T09:47:48.102Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 15,
+    "fields": {
+      "rubric": 1,
+      "title": "Прошлогодний снег 2021",
+      "kind": "s",
+      "content": "Очень прошлогодний, просто позапрошлогодний",
+      "price": 1.0,
+      "published": "2023-08-16T09:55:34.266Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 17,
+    "fields": {
+      "rubric": 1,
+      "title": "Жёлтый снег",
+      "kind": "s",
+      "content": "Не употреблять в пищу",
+      "price": 999.0,
+      "published": "2023-08-21T10:57:06.653Z"
+    }
+  },
+  {
+    "model": "bboard.bb",
+    "pk": 18,
+    "fields": {
+      "rubric": 1,
+      "title": "тату студия",
+      "kind": "s",
+      "content": "we",
+      "price": 20000.0,
+      "published": "2023-09-04T10:53:14.549Z"
+    }
+  },
+  {
+    "model": "testapp.advuser",
+    "pk": 1,
+    "fields": {
+      "is_activated": true,
+      "user": 1
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 1,
+    "fields": {
+      "name": "Болт"
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 2,
+    "fields": {
+      "name": "Гайка"
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 3,
+    "fields": {
+      "name": "Шайба"
+    }
+  },
+  {
+    "model": "testapp.spare",
+    "pk": 4,
+    "fields": {
+      "name": "Шпилька"
+    }
+  },
+  {
+    "model": "testapp.machine",
+    "pk": 1,
+    "fields": {
+      "name": "Самосвал"
+    }
+  },
+  {
+    "model": "testapp.machine",
+    "pk": 2,
+    "fields": {
+      "name": "Тепловоз"
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 1,
+    "fields": {
+      "machine": 1,
+      "spare": 1,
+      "count": 5
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 2,
+    "fields": {
+      "machine": 1,
+      "spare": 2,
+      "count": 100
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 4,
+    "fields": {
+      "machine": 2,
+      "spare": 1,
+      "count": 49
+    }
+  },
+  {
+    "model": "testapp.kit",
+    "pk": 5,
+    "fields": {
+      "machine": 2,
+      "spare": 3,
+      "count": 49
+    }
+  },
+  {
+    "model": "testapp.sms",
+    "pk": 1,
+    "fields": {
+      "comment": "Привет, бобры!",
+      "sender": 1,
+      "receiver": 2
+    }
+  }
+]

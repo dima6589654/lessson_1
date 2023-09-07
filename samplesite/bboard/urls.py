@@ -1,4 +1,3 @@
-import bbs as bbs
 from django.urls import path
 from django.views.generic import WeekArchiveView
 

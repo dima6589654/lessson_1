@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'captcha',
+    'precise_bbcode',
+
+
 
     'bboard.apps.BboardConfig',
     'testapp.apps.TestappConfig',
