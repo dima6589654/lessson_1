@@ -10,6 +10,7 @@
     <h2>Рубрика: {{ current_rubric.name }}</h2>
     {% for bb in bbs %}
         <div>
+{#            <h2>{{ bb.title }}</h2>#}
             <a href="{% url 'detail' pk=bb.pk %}">
                 <h2>{{ bb.title_and_price }}</h2>
             </a>
@@ -19,16 +20,21 @@
             <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
         </div>
     {% endfor %}
-<h1> {% if bbs.has_previous %}
-    <a href="{% url 'rubric_page' bbs.previous_page_number %}"> &#9664;</a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    {%endif%}
-    {{bbs.number}} из {{ bbs.paginator.num_pages}}
-    {% if bbs.has_next %}
-        &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{% url 'rubric_page' bbs.next_page_number %}"> &#9654;</a>
-        {%endif%}
 
+    <p>
+        {% if page_obj.has_previous %}
+            <a href="{% url 'rubric_page' current_rubric.pk page_obj.previous_page_number %}">&#9664;</a>
+            &nbsp; &nbsp; | &nbsp; &nbsp;
+        {% endif %}
 
-</h1>
+        {% for i in page_obj.paginator.page_range %}
+            &nbsp; {{ i }} &nbsp;
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            &nbsp; &nbsp; | &nbsp; &nbsp;
+            <a href="{% url 'rubric_page' current_rubric.pk page_obj.next_page_number %}">&#9654;</a>
+        {% endif %}
+    </p>
+
 {% endblock %}

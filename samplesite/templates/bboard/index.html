@@ -1,44 +1,37 @@
 {% extends "layout/basic.html" %}
+{% load bbcode_tags %}
+{% load bootstrap4 %}
 {% block content %}
+    <p>{{ block.super }}</p>
+    {% bootstrap_pagination page size="small" url="" %}
 
-{%for bb in bbs%}
-        <div class="{% cycle 'bg-sacondary' 'bg-light' %}">
-            <h2 class="{{currentclass}}">
-                {#<a href="{% url 'read' bb.pk %}">#}
+    {% for bb in bbs %}
+        <div>
+            <h2>
                 <a href="{% url 'detail' pk=bb.pk %}">
-                    {% if forloop.first %}
-                     {%elif forloop.last %}
-                    {% else %}
-                    {% endif %}
-                    {{forloop.counter}}.{{ bb.title_and_price }}
+                    {{ bb.title_and_price }}
                 </a>
             </h2>
-            <p>{{ bb.content.rendered|truncatechars:10 }}</p>
+            <p>{{ bb.content.rendered }}</p>
             <p><a href="{{ bb.rubric.get_absolute_url }}">
-                {{ bb.rubric.name|upper }}</a></p>
-            <p>{{bb.price|default:'цены нет'|floatformat:5}}</p>
-            <p>{{ bb.published|date:"DATETIME_FORMAT" }}</p>
-                        <p>{%firstof bb.phone bb.email 'herg' %}</p>
+                {{ bb.rubric.name }}</a></p>
+            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
         </div>
     {% endfor %}
-<h1> {% if page.has_previous %}
-    <a href="?page={{page.previous_page_number}}"> &#9664;</a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    {%endif%}
-    № {{page.number}} из {{ page.paginator.num_pages}}
-    {% if page.has_next %}
-        &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{% url 'page1' page.next_page_number %}"> &#9654;</a>
-        {%endif%}
+    <p>
+        {% if page.has_previous %}
+            <a href="{% url 'page' page.previous_page_number %}">&#9664;</a>
+                 &nbsp;|&nbsp;
+        {% endif %}
 
-</h1>
-<p>
-    {% for d in date_list %}
-    {{d}}
+        {% for i in page.paginator.page_range %}
+        {{ i }}
         {% endfor %}
 
+        {% if page.has_next %}
+            &nbsp;|&nbsp;
+            <a href="{% url 'page' page.next_page_number %}">&#9654;</a>
+        {% endif %}
+    </p>
 
-</p>
-
-
-{% endblock %}
+{% endblock content %}

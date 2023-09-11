@@ -1,44 +1,14 @@
 {% extends "layout/basic.html" %}
-
-{% block title %}изменения{% endblock %}
+{% load bootstrap4 %}
+{% block title %}Массовое редактирование рубрик{% endblock %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ formset.management_form }}
-    {% if formset.non_form_errors %}
-    <ul>
-        {% for error in formset.non_form_errors %}
-        <li><em>{{ error|escape }}</em></li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% for form in formset %}
-    {% for hidden in form.hidden_fields %}
-    {{ hidden }}
-    {% endfor %}
-    {% if form.non_field_errors %}
-    <ul>
-        {% for error in form.non_field_errors %}
-        <li><em>{{ error | escape }}</em></li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+    <h2>Массовое редактирование рубрик</h2>
 
-
-    {% for field in form.visible_fields %}
-    {% if field.errors %}
-    <ul>
-        {% for error in field.errors %}
-        <li><em>{{ error|escape }}</em></li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <p>{{ field.label_tag }}<br>{{ field }}<br>
-        {{ field.help_text }}</p>
-    {% endfor %}
-    {% endfor %}
-
-<input type="submit" value="Coxpaнить">
-</form>
+    <form method="post" class="col-md-2">
+        {% csrf_token %}
+        {%bootstrap_formset formset %}
+        {% buttons submit='Добавиuoть' %}{% endbuttons %}
+    </form>
+{% bootstrap_alert content='<p>Рубрика добавлена</p>' alert_type='success' %}
 {% endblock %}

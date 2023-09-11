@@ -1,29 +1,36 @@
 {% load static %}
-{% load count_bbs %}
+{#% load count_bbs %#}
+{% load bootstrap4 %}
+
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Главная{% endblock %} ::
+    <title>{% block title %}Главная{% endblock %} :
         Доска объявлений</title>
-    <link rel="stylesheet" href="{% static 'bboard/style.css' %}">
 
+    {% bootstrap_css %}
+
+    <link rel="stylesheet" href="{% static 'bboard/style.css' %}">
+    {#<link rel="stylesheet" href="{% get_static_prefix %}bboard/style.css">#}
+    {#<link rel="stylesheet" href="{{ STATIC_URL }}bboard/style.css">#}
 </head>
 <body>
 <header>
     <h1>Объявления</h1>
 </header>
-{% include 'includes/inc_main_menu.html'%}
+
+{% include 'includes/inc_main_menu.html' %}
 
 <section>
-{% block content %}
-
+    {% block content %}
     {% endblock %}
 </section>
-<footer>
-    {% now 'Y' %}
-    {% now 'SHORT_DATETIME_FORMAT' %}
-</footer>
+
+{% static 'bboard/script.js' as js_url %}
+<script src="{{ js_url }}"></script>
+
 </body>
+{% bootstrap_javascript jquery=True %}
 </html>

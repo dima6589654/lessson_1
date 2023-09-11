@@ -4,8 +4,9 @@
 
 {% block content %}
     <h2>Вход</h2>
-{#{% if 'bboard.add_bb' in perms %}#}
-{#{% if perms.bboard.add_bb %}#}
+
+    {#% if 'bboard.add_bb' in perms %#}
+    {#% if perms.bboard.add_bb %#}
 
     {% if user.is_authenticated %}
         <p>Вы уже выполнили вход.</p>

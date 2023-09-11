@@ -11,8 +11,6 @@
 
     {% for rubric in rubrics %}
 
-
-{#        <a href="{% url 'by_rubric' rubric.pk %}">#}
         <a href="{{ rubric.get_absolute_url }}">
             {{ rubric.name }}
             {% if count_bb %}
@@ -23,17 +21,17 @@
     {% block content %}
     {% if user.is_authenticated %}
 
-    <h4>
+    <h5>
         <a href="{% url 'logout' %}">
             Выйти ({{ user.username }})
         </a>
-    </h4>
+    </h5>
     {% else %}
-        <h4>
+        <h5>
             <a href="{% url 'login' %}">
                 Войти
             </a>
-        </h4>
+        </h5>
     {% endif %}
     {% endblock %}
 </nav>

@@ -1,9 +1,9 @@
+from django.db import transaction
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, ListView, \
+from django.views.generic import CreateView, DetailView, ListView,\
     DeleteView, UpdateView
 
-from django.db import transaction
 from testapp.forms import SMSCreateForm
 from testapp.models import SMS
 
@@ -19,30 +19,33 @@ class ReadSms(DetailView):
     template_name = 'testapp/read.html'
 
 
-#
 # @transaction.non_atomic_requests
 # def my_view(request):
-#     obj1=MyModel.objects.create(name='Object 1')
-#     obj2=MyModel.objects.create(name='Object 2')
-#     obj1.name='new name'
+#     # Режим обработки транзакций по умолчанию
+#     obj1 = MyModel.objects.create(name='Object 1')
+#     obj2 = MyModel.objects.create(name='Object 2')
+#     obj1.name = 'Обновлённый name'
 #     obj1.save()
 #     obj2.save()
-#     return redirect('index')
-#
-#
-# @transaction.atomic
-# def my_view(request):
-#     pass
-#     with transaction.atomic():
-#         return redirect('index')
-#     # Набор в одной транзакции
 
-#
+
+# # @transaction.atomic
+# def my_view(request):
+#     # Режим атомарных запросов
+#     with transaction.atomic():
+#         # Набор в одной транзакции
+#         obj1 = MyModel.objects.create(name='Object 1')
+#         obj2 = MyModel.objects.create(name='Object 2')
+#         obj1.name = 'Обновлённый name'
+#         obj1.save()
+#         obj2.save()
+#     return redirect('index')
+
+
 # def my_function():
 #     transaction.set_autocommit(False)
 #     try:
-#
-#         # operation
+#         # Операция
 #         pass
 #     except Exception:
 #         transaction.rollback()
@@ -51,27 +54,33 @@ class ReadSms(DetailView):
 #     finally:
 #         transaction.set_autocommit(True)
 #
-# def commit_handler():
-#     pass
-#     # После подтверждения транзакция
-#
-# def my_view ():
-#     for form in formset:
-#         if form.clened_data:
-#             sp=transaction.savepoint()
-#             try:
-#                 form.save()
-#                 transaction.savepoint(sp)
-#             except:
-#                 transaction.savepoint_rollback(sp)
-#                 transaction.commit()
-#
-# def my_contr():
-#     # coding
+# def my_controller():
+#     # Какой-то код
 #     if form.valid():
 #         try:
 #             form.save()
 #             transaction.commit()
-#         except
-#             transaction.rollback(commit_handler)
+#         except:
+#             transaction.rollback()
 #
+#
+# def commit_handler():
+#     pass
+#     # После подтверждения транзакции
+#
+# def my_view():
+#     # Какой-то код
+#     for form in formset:
+#         if form.cleaned_data:
+#             sp = transaction.savepoint()
+#             try:
+#                 form.save()
+#                 transaction.savepoint_commit(sp)
+#             except:
+#                 transaction.savepoint_rollback(sp)
+#                 transaction.commit()
+#             finally:
+#                 transaction.on_commit(commit_handler)
+
+
+

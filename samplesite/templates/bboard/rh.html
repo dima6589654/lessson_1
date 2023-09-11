@@ -1,13 +1,3 @@
-{% extends "layout/basic.html" %}
-
-{% block title %}Массовое редактирование объявлений рубрики {{ current_rubric }}{% endblock %}
-
-{% block content %}
-    <h2>Массовое редактирование объявлений рубрики {{ current_rubric }}</h2>
-
-    <form method="post">
-        {% csrf_token %}
-        {{ formset.management_form }}
 
         {% if formset.non_form_errors %}
             <ul>
@@ -44,10 +34,3 @@
                     {{ field }}<br>
                     {{ field.help_text }}
                 </p>
-
-            {% endfor %}
-        {% endfor %}
-
-        <input type="submit" value="Сохранить">
-    </form>
-{% endblock %}

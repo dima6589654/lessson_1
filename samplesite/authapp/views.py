@@ -7,7 +7,7 @@ from authapp.forms import UserLoginForm, RegisterUserForm
 
 
 def login(request):
-    title = "Вход"
+    title = "вход"
     login_form = UserLoginForm(data=request.POST)
 
     if request.method == 'POST' and login_form.is_valid():
@@ -29,7 +29,7 @@ def login(request):
 
 
 def register(request):
-    title = "Регистрация"
+    title = "регистрация"
 
     if request.method == 'POST':
         register_form = RegisterUserForm(data=request.POST)

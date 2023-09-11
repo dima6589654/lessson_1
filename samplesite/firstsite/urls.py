@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView, PasswordChangeDoneView
+from django.contrib.auth.views import (LoginView, LogoutView, PasswordChangeView,
+                                       PasswordChangeDoneView)
 from django.urls import path, include
 
 urlpatterns = [
@@ -14,10 +15,12 @@ urlpatterns = [
     path('accounts/password_change/', PasswordChangeView.as_view(
         template_name='registration/change_password.html'),
          name='password_change'),
-    path('accounts/password_change/done/', PasswordChangeDoneView.as_view(
-        template_name='registration/password_changed.html'),
+    path('accounts/password_change/done/',
+         PasswordChangeDoneView.as_view(
+             template_name='registration/password_changed.html'),
          name='password_change_done'),
 ]
+
 urlpatterns += [
-    path('captcha/', include('captcha.urls'))
+    path('captcha/', include('captcha.urls')),
 ]

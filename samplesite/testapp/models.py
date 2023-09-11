@@ -23,7 +23,8 @@ class Spare(models.Model):
 
 class Machine(models.Model):
     name = models.CharField(max_length=30)
-    spares = models.ManyToManyField(Spare, through='Kit', through_fields=('machine', 'spare'))
+    spares = models.ManyToManyField(Spare, through='Kit',
+                                    through_fields=('machine', 'spare'))
     notes = GenericRelation('Note')
 
 
@@ -51,24 +52,27 @@ class SMS(models.Model):
 
 class Note(models.Model):
     content = models.TextField()
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType,
+                                     on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey(ct_field='content_type',
                                        fk_field='object_id')
 
 
-# прямое наследование
-# class Massage(models.Model):
+# Прямое наследование
+# ##
+# class Message(models.Model):
 #     content = models.TextField()
-#
-#
-# class PrivateMassage(Massage):
+
+
+# class PrivateMessage(Message):
 #     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     massage = models.OneToOneField(Massage, on_delete=models.CASCADE, parent_link=True)
+#     message = models.OneToOneField(Message, on_delete=models.CASCADE,
+#                                    parent_link=True)
 
 
-# Абстрактные
-
+# Абстрактные модели
+# ##
 class Message(models.Model):
     content = models.TextField()
     name = models.CharField(max_length=20)
@@ -84,10 +88,11 @@ class PrivateMessage(Message):
     name = models.CharField(max_length=40)
     email = None
 
-    class Meta:
+    class Meta(Message.Meta):
         pass
 
 
+# Прокси-модели
 class RevRubric(Rubric):
     class Meta:
         proxy = True

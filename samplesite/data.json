@@ -37,8 +37,8 @@
     "model": "auth.user",
     "pk": 1,
     "fields": {
-      "password": "pbkdf2_sha256$600000$DoiI8iF5Fmm1bLQqQP7dvN$GmXMr5G5B16i63vix9pfoyWMoYuNFQDESBPC6SpUrR0=",
-      "last_login": "2023-09-04T09:23:57.479Z",
+      "password": "pbkdf2_sha256$600000$phiKK1iNh1x9FGbyDpfyZQ$/AkMG4mA+17UsamtI9mKUHbEGnyszju7QnWM4SZyEbI=",
+      "last_login": "2023-08-23T11:25:10.974Z",
       "is_superuser": true,
       "username": "admin",
       "first_name": "",
@@ -130,359 +130,273 @@
     }
   },
   {
-    "model": "sessions.session",
-    "pk": "mm4y7kltou9cyjlwowda3k030yd6mrcp",
-    "fields": {
-      "session_data": ".eJxVjMEOwiAQRP-FsyECLqhH7_0GsssuUjWQlPZk_HfbpAe9zGHem3mriMtc4tJliiOrqzLq8NsRpqfUDfAD673p1Oo8jaQ3Re-066GxvG67-3dQsJd1fQRnCJDYn8ABBAExmD0Y7ynkNRMI-0zGWpOEIaRzyMTOwoV9CKQ-X9elN9o:1qd5oL:-kkRzu2jiQhwfPmWo-P7cl_Zp5Bs_8NEex0m0oasPgc",
-      "expire_date": "2023-09-18T09:23:57.483Z"
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "mnenqa147bffc6rp8lzrbwqjwqtu5c6z",
-    "fields": {
-      "session_data": ".eJxVjMEOwiAQRP-FsyECLqhH7_0GsssuUjWQlPZk_HfbpAe9zGHem3mriMtc4tJliiOrqzLq8NsRpqfUDfAD673p1Oo8jaQ3Re-066GxvG67-3dQsJd1fQRnCJDYn8ABBAExmD0Y7ynkNRMI-0zGWpOEIaRzyMTOwoV9CKQ-X9elN9o:1qZ8Km:MslNpZVzn8G-j1T2xp5n2hndM6Nt8P1Txk09psyp_ho",
-      "expire_date": "2023-09-07T11:17:04.295Z"
-    }
-  },
-  {
     "model": "captcha.captchastore",
     "pk": 1,
     "fields": {
-      "challenge": "RMQT",
-      "response": "rmqt",
-      "hashkey": "55c57468612fbc10caa0432e9af35b2eb9f71f72",
-      "expiration": "2023-09-04T10:56:23.587Z"
+      "challenge": "RXPZ",
+      "response": "rxpz",
+      "hashkey": "c85615d1430451c0fca3810c9a588604118bcad5",
+      "expiration": "2023-09-04T10:56:10.265Z"
     }
   },
   {
     "model": "captcha.captchastore",
-    "pk": 3,
+    "pk": 2,
     "fields": {
-      "challenge": "SBSJ",
-      "response": "sbsj",
-      "hashkey": "f82654a49baa0017ed2ef0b21264513925895ad8",
-      "expiration": "2023-09-04T11:01:15.967Z"
+      "challenge": "GQHU",
+      "response": "gqhu",
+      "hashkey": "eed38b5fcaec1bd32ebcdefc32fd1272e6ee01e7",
+      "expiration": "2023-09-04T10:57:20.909Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 4,
     "fields": {
-      "challenge": "5+7=",
-      "response": "12",
-      "hashkey": "73f7a3bfb6f1cdc485b88429c269051d3b7e64cc",
-      "expiration": "2023-09-04T11:04:53.301Z"
+      "challenge": "KVDR",
+      "response": "kvdr",
+      "hashkey": "509f3a2f1d5526ce5379c63aa6499b50c9719d5d",
+      "expiration": "2023-09-04T10:58:21.290Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 5,
     "fields": {
-      "challenge": "9*8=",
-      "response": "72",
-      "hashkey": "1b1e41c68cc736f4c87395c4b047b86049088d4a",
-      "expiration": "2023-09-04T11:04:53.964Z"
+      "challenge": "ERZN",
+      "response": "erzn",
+      "hashkey": "c1354b0db916c3926ef9bff696645cb7d80b4051",
+      "expiration": "2023-09-04T11:00:02.822Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 6,
     "fields": {
-      "challenge": "6*9=",
-      "response": "54",
-      "hashkey": "c613787d5c057a60591892ae86cfa762ee840884",
-      "expiration": "2023-09-04T11:04:54.181Z"
+      "challenge": "DPYU",
+      "response": "dpyu",
+      "hashkey": "1a4d71ca2491197e4e5a7d949968266a451398f0",
+      "expiration": "2023-09-04T11:00:20.424Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 7,
     "fields": {
-      "challenge": "2+1=",
-      "response": "3",
-      "hashkey": "259463828e98c22fe1fb40eda4486ef9fc8b9a0c",
-      "expiration": "2023-09-04T11:04:54.373Z"
+      "challenge": "VCPR",
+      "response": "vcpr",
+      "hashkey": "7f42dea3bf0cdec4030945ef127fd58e12ba3f0e",
+      "expiration": "2023-09-04T11:00:27.832Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 8,
     "fields": {
-      "challenge": "10*5=",
-      "response": "50",
-      "hashkey": "ed564c384bbd31cedf5ff539b3f59023b572ec2c",
-      "expiration": "2023-09-04T11:04:54.556Z"
+      "challenge": "2+7=",
+      "response": "9",
+      "hashkey": "7d001783c72c49c382d5db1c1e13d866b9c0f25c",
+      "expiration": "2023-09-04T11:03:18.166Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 9,
     "fields": {
-      "challenge": "7*8=",
-      "response": "56",
-      "hashkey": "df66444d7d8ff91b34887f52f184c5b063ce6e89",
-      "expiration": "2023-09-04T11:04:54.724Z"
+      "challenge": "6+5=",
+      "response": "11",
+      "hashkey": "b16a862e04b46f515dbe8d5926e1013e791e5df6",
+      "expiration": "2023-09-04T11:03:20.942Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 10,
     "fields": {
-      "challenge": "7-4=",
-      "response": "3",
-      "hashkey": "252769a9946654ffb5e0c794bcec9a9347722984",
-      "expiration": "2023-09-04T11:04:54.885Z"
+      "challenge": "4+8=",
+      "response": "12",
+      "hashkey": "13eb3fe4910f3d7433769e5109582f99bd4610af",
+      "expiration": "2023-09-04T11:03:21.646Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 11,
     "fields": {
-      "challenge": "10-6=",
-      "response": "4",
-      "hashkey": "51a82f69dad27e6556a9a6207765ef1e3762e683",
-      "expiration": "2023-09-04T11:04:55.052Z"
+      "challenge": "9-2=",
+      "response": "7",
+      "hashkey": "ced7ac4c215d2f4b399a336e5379ebbae657d098",
+      "expiration": "2023-09-04T11:03:22.987Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 12,
     "fields": {
-      "challenge": "1+1=",
-      "response": "2",
-      "hashkey": "395c9b7cf8e2ea6a8c8927fbce1f1a16410f0365",
-      "expiration": "2023-09-04T11:04:55.236Z"
+      "challenge": "9+8=",
+      "response": "17",
+      "hashkey": "526518045be40ad2791ebab31162034895f62f36",
+      "expiration": "2023-09-04T11:03:24.380Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 13,
     "fields": {
-      "challenge": "8+1=",
-      "response": "9",
-      "hashkey": "9c946e8e0568198ea47e52b4209b8e42ffe0366f",
-      "expiration": "2023-09-04T11:04:55.436Z"
+      "challenge": "6+10=",
+      "response": "16",
+      "hashkey": "928b3aaa0062356f2e645a72345d0199d5cc233b",
+      "expiration": "2023-09-04T11:03:27.037Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 14,
     "fields": {
-      "challenge": "3+1=",
-      "response": "4",
-      "hashkey": "1e76492763b6b0691b2733d2d9581064c28bb84e",
-      "expiration": "2023-09-04T11:04:55.644Z"
+      "challenge": "9-8=",
+      "response": "1",
+      "hashkey": "7b652dc508f1ed04488394cbf59c87bb68c37d83",
+      "expiration": "2023-09-04T11:03:28.365Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 15,
     "fields": {
-      "challenge": "6-1=",
-      "response": "5",
-      "hashkey": "32fa50621eebab40914e0c368c341de8bf090bcb",
-      "expiration": "2023-09-04T11:04:55.828Z"
+      "challenge": "4*7=",
+      "response": "28",
+      "hashkey": "c4329875604ce7452f73ddc7718ca6acf3e38793",
+      "expiration": "2023-09-04T11:03:29.655Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 16,
     "fields": {
-      "challenge": "10-8=",
-      "response": "2",
-      "hashkey": "6768cb9853d2367ed2433150e1a354de4d25c48f",
-      "expiration": "2023-09-04T11:04:56.012Z"
+      "challenge": "8-2=",
+      "response": "6",
+      "hashkey": "7c57e8583a8078c35014da9c2b593ef5081ea387",
+      "expiration": "2023-09-04T11:03:31.016Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 17,
     "fields": {
-      "challenge": "10-7=",
-      "response": "3",
-      "hashkey": "887d88f13a28454178fb6103b72039748e9f0a51",
-      "expiration": "2023-09-04T11:04:56.214Z"
+      "challenge": "1-1=",
+      "response": "0",
+      "hashkey": "c30404c88edd7150bc88c5ace020ff77170dbea8",
+      "expiration": "2023-09-04T11:03:32.077Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 18,
     "fields": {
-      "challenge": "7-4=",
-      "response": "3",
-      "hashkey": "0461c741665fc0b23e0476928ada304ad9a9564b",
-      "expiration": "2023-09-04T11:04:56.405Z"
+      "challenge": "9+5=",
+      "response": "14",
+      "hashkey": "ea0973e499523de13e7db82f5528b854d0b892e2",
+      "expiration": "2023-09-04T11:03:33.022Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 19,
     "fields": {
-      "challenge": "3-1=",
-      "response": "2",
-      "hashkey": "87c0d60849c54f45ecaba5ec63b9f88684b8aef2",
-      "expiration": "2023-09-04T11:04:56.596Z"
+      "challenge": "5-5=",
+      "response": "0",
+      "hashkey": "4495a48b456d8467af053922ef2b8cbda4c4dd00",
+      "expiration": "2023-09-04T11:09:39.573Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 20,
     "fields": {
-      "challenge": "1-1=",
-      "response": "0",
-      "hashkey": "7dcc4a4844350881624d929149540f097d0f1127",
-      "expiration": "2023-09-04T11:04:57.132Z"
+      "challenge": "PGEHFT",
+      "response": "pgehft",
+      "hashkey": "34642a7654c4101be610bfe0ad0e4f5cecd69f4c",
+      "expiration": "2023-09-04T11:11:15.327Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 21,
     "fields": {
-      "challenge": "9-6=",
-      "response": "3",
-      "hashkey": "eef4f7ce816ec5556bdcff85086264e18195f22f",
-      "expiration": "2023-09-04T11:04:57.388Z"
+      "challenge": "UGNHGDDNFZKNBTSOTIEDN",
+      "response": "ugnhgddnfzknbtsotiedn",
+      "hashkey": "fe2ea742baced074c7ab7f207b29a4216e4b216e",
+      "expiration": "2023-09-04T11:11:27.594Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 22,
     "fields": {
-      "challenge": "8-1=",
-      "response": "7",
-      "hashkey": "1006c9397255829d4032a141d4cac5a2dc2fc99e",
-      "expiration": "2023-09-04T11:04:57.597Z"
+      "challenge": "XKYFUK",
+      "response": "xkyfuk",
+      "hashkey": "ef43fd12af0a403ce3bc2680c0225763ff946771",
+      "expiration": "2023-09-04T11:22:09.528Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 23,
     "fields": {
-      "challenge": "10*2=",
-      "response": "20",
-      "hashkey": "18e0d9b437a8bcc04cf7ba76012408bac3a209c9",
-      "expiration": "2023-09-04T11:04:57.813Z"
+      "challenge": "YBYXNK",
+      "response": "ybyxnk",
+      "hashkey": "2f5ccfd821e9b9544994359d35c58349fea49cfb",
+      "expiration": "2023-09-04T11:22:23.060Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 24,
     "fields": {
-      "challenge": "4-2=",
-      "response": "2",
-      "hashkey": "1011239db4627450991074e487f7e8c8ffc70963",
-      "expiration": "2023-09-04T11:04:58.053Z"
+      "challenge": "JZQCKM",
+      "response": "jzqckm",
+      "hashkey": "b187269829f4178b547e3b0046eaa984b7ceee96",
+      "expiration": "2023-09-04T11:22:38.088Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 25,
     "fields": {
-      "challenge": "5-2=",
-      "response": "3",
-      "hashkey": "2989b9f4a0755cd4e638078f6a239642adbe28a9",
-      "expiration": "2023-09-04T11:04:58.757Z"
+      "challenge": "EEJJYX",
+      "response": "eejjyx",
+      "hashkey": "b0af3e2726f37a998cd351bda35d2b8fb838c2e1",
+      "expiration": "2023-09-04T11:22:38.387Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 26,
     "fields": {
-      "challenge": "7-6=",
-      "response": "1",
-      "hashkey": "edda022f3c5e5653edd21d12512d795013a11236",
-      "expiration": "2023-09-04T11:04:59.612Z"
+      "challenge": "RDRBEE",
+      "response": "rdrbee",
+      "hashkey": "efaeab52cbbcce8a8c0ee96b8b95c2acee266d8a",
+      "expiration": "2023-09-04T11:22:39.183Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 27,
     "fields": {
-      "challenge": "10-5=",
-      "response": "5",
-      "hashkey": "9dbc2081b800bcd44be8d7707b8a5de2cbced520",
-      "expiration": "2023-09-04T11:04:59.820Z"
+      "challenge": "GVKZAB",
+      "response": "gvkzab",
+      "hashkey": "41eea86f40a6df3798e07801937fac74f8170e15",
+      "expiration": "2023-09-04T11:22:47.255Z"
     }
   },
   {
     "model": "captcha.captchastore",
     "pk": 28,
     "fields": {
-      "challenge": "10*6=",
-      "response": "60",
-      "hashkey": "9de1afb60fb92fa97210c9d39dc1dfaf00634c9b",
-      "expiration": "2023-09-04T11:05:00.013Z"
-    }
-  },
-  {
-    "model": "captcha.captchastore",
-    "pk": 29,
-    "fields": {
-      "challenge": "2+10=",
-      "response": "12",
-      "hashkey": "6dd082526e7dc351aebb53d755095aaf6e8bd3ff",
-      "expiration": "2023-09-04T11:05:00.204Z"
-    }
-  },
-  {
-    "model": "captcha.captchastore",
-    "pk": 30,
-    "fields": {
-      "challenge": "5+7=",
-      "response": "12",
-      "hashkey": "6392059fb88e1eefd58f9a72009fd9ed6fa81718",
-      "expiration": "2023-09-04T11:05:00.396Z"
-    }
-  },
-  {
-    "model": "captcha.captchastore",
-    "pk": 31,
-    "fields": {
-      "challenge": "3*3=",
-      "response": "9",
-      "hashkey": "0b23c00d42d20fcb62c8185d16e17fe908be5874",
-      "expiration": "2023-09-04T11:05:00.612Z"
-    }
-  },
-  {
-    "model": "captcha.captchastore",
-    "pk": 32,
-    "fields": {
-      "challenge": "7+9=",
-      "response": "16",
-      "hashkey": "7f8ab40cce8d1c66525b15b70806937ec7703f0e",
-      "expiration": "2023-09-04T11:20:12.648Z"
-    }
-  },
-  {
-    "model": "captcha.captchastore",
-    "pk": 33,
-    "fields": {
-      "challenge": "5+7=",
-      "response": "12",
-      "hashkey": "8551913f5a8fe7f72a85665c6591851c65d657c0",
-      "expiration": "2023-09-04T11:20:14.167Z"
-    }
-  },
-  {
-    "model": "captcha.captchastore",
-    "pk": 34,
-    "fields": {
-      "challenge": "3+3=",
-      "response": "6",
-      "hashkey": "26f98c4d43ecfd479fd8a2b73475fd680a8b9072",
-      "expiration": "2023-09-04T11:20:15.230Z"
-    }
-  },
-  {
-    "model": "captcha.captchastore",
-    "pk": 35,
-    "fields": {
-      "challenge": "1*2=",
-      "response": "2",
-      "hashkey": "7e63b66d62146c5a4d9f4ab42b8029fa660c8629",
-      "expiration": "2023-09-04T11:20:16.142Z"
+      "challenge": "ZUIFWE",
+      "response": "zuifwe",
+      "hashkey": "f4a3f490390f0908182794a49983226813a282fd",
+      "expiration": "2023-09-04T11:24:13.300Z"
     }
   },
   {
@@ -718,12 +632,12 @@
     "model": "bboard.bb",
     "pk": 18,
     "fields": {
-      "rubric": 1,
-      "title": "тату студия",
+      "rubric": 6,
+      "title": "Каптча тест",
       "kind": "s",
-      "content": "we",
-      "price": 20000.0,
-      "published": "2023-09-04T10:53:14.549Z"
+      "content": "Тестируем каптчу",
+      "price": 0.01,
+      "published": "2023-09-04T10:52:47.394Z"
     }
   },
   {
