@@ -1,7 +1,11 @@
 {% extends "layout/basic.html" %}
 {% load bbcode_tags %}
 {% load bootstrap4 %}
+{% load filtersandtags %}
 {% block content %}
+<div>{% lst ', ' '1' '2' '3' '4' '5' %}</div>
+{% ulist  '1' '2' '3' '4' '5' %}
+
     <p>{{ block.super }}</p>
     {% bootstrap_pagination page size="small" url="" %}
 
@@ -13,6 +17,8 @@
                 </a>
             </h2>
             <p>{{ bb.content.rendered }}</p>
+            <p>{{bb.price|cur}}</p>
+            <p>{{bb.price|cur:'тг'}}</p>
             <p><a href="{{ bb.rubric.get_absolute_url }}">
                 {{ bb.rubric.name }}</a></p>
             <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
@@ -33,5 +39,5 @@
             <a href="{% url 'page' page.next_page_number %}">&#9654;</a>
         {% endif %}
     </p>
-
+<div>{% lst ', ' '1' '2' '3' '4' '5' %}</div>
 {% endblock content %}
