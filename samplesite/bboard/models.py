@@ -3,6 +3,8 @@ from django.core import validators
 from django.core.exceptions import ValidationError
 from django.db import models
 from precise_bbcode.fields import BBCodeTextField
+from datetime import datetime
+from os.path import splitext
 
 
 def get_min_length():
@@ -14,6 +16,12 @@ def validate_even(val):
     if val % 2 != 0:
         raise ValidationError('Число %(value)s нечётное', code='odd',
                               params={'value': val})
+
+
+def get_timestamp_path(instance, filename):
+    return '%s%s%s' % (splitext(filename)[0],
+                       datetime.now().timestamp(),
+                       splitext(filename)[1])
 
 
 class RubricQuerySet(models.QuerySet):
@@ -45,6 +53,7 @@ class Rubric(models.Model):
     )
 
     objects = RubricManager()
+
     # bbs = RubricManager()
 
     # objects = models.Manager()
@@ -128,6 +137,11 @@ class Bb(models.Model):
         db_index=True,
         verbose_name="Опубликовано",
     )
+
+    archive = models.FileField(
+        # upload_to='archive/',
+        blank=True,
+        upload_to=get_timestamp_path),
 
     objects = models.Manager()
     by_price = BbManager()
