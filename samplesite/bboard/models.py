@@ -1,10 +1,11 @@
+from datetime import datetime
+from os.path import splitext
+
 from django.contrib.auth.models import User
 from django.core import validators
 from django.core.exceptions import ValidationError
 from django.db import models
 from precise_bbcode.fields import BBCodeTextField
-from datetime import datetime
-from os.path import splitext
 
 
 def get_min_length():
@@ -53,7 +54,6 @@ class Rubric(models.Model):
     )
 
     objects = RubricManager()
-
     # bbs = RubricManager()
 
     # objects = models.Manager()
@@ -139,9 +139,11 @@ class Bb(models.Model):
     )
 
     archive = models.FileField(
-        # upload_to='archive/',
+        # upload_to='archives/',
+        # upload_to='archives/%Y/%m/%d/',
+        upload_to=get_timestamp_path,
         blank=True,
-        upload_to=get_timestamp_path),
+    )
 
     objects = models.Manager()
     by_price = BbManager()

@@ -1,14 +1,20 @@
 {% extends "layout/basic.html" %}
 {% load bootstrap4 %}
+
 {% block title %}Массовое редактирование рубрик{% endblock %}
 
 {% block content %}
+
+    {#% bootstrap_alert content='<p>Рубрики добавлены</p>' alert_type='success' %#}
+
     <h2>Массовое редактирование рубрик</h2>
 
-    <form method="post" class="col-md-2">
+    <form method="post" class="col-md-3">
         {% csrf_token %}
-        {%bootstrap_formset formset %}
-        {% buttons submit='Добавиuoть' %}{% endbuttons %}
+
+        {% bootstrap_formset formset %}
+        {% buttons submit="Сохранить" reset="Сбросить" %}{% endbuttons %}
+
     </form>
-{% bootstrap_alert content='<p>Рубрика добавлена</p>' alert_type='success' %}
+
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Добавление изображеня{% endblock %}
+
+{% block content %}
+    <h2>Добавление изображеня</h2>
+
+    <form method="post" enctype="multipart/form-data" class="col-md-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+{% endblock %}

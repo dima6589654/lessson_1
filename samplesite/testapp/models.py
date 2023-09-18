@@ -101,9 +101,11 @@ class RevRubric(Rubric):
 
 
 class Img(models.Model):
-    img = models.ImageField(verbose_name='Изображение',
-                            upload_to=get_timestamp_path,
-                            validators=[FileExtensionValidator(allowed_extensions=('gif', 'jpg', 'png'))])
+    img = models.ImageField(
+        verbose_name='Изображение',
+        upload_to=get_timestamp_path,
+        validators=[FileExtensionValidator(allowed_extensions=('jpg', 'png', 'gif'))]
+    )
 
     desc = models.TextField(verbose_name='Описание')
 

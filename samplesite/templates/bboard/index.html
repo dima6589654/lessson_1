@@ -2,42 +2,67 @@
 {% load bbcode_tags %}
 {% load bootstrap4 %}
 {% load filtersandtags %}
+
 {% block content %}
-<div>{% lst ', ' '1' '2' '3' '4' '5' %}</div>
-{% ulist  '1' '2' '3' '4' '5' %}
 
-    <p>{{ block.super }}</p>
-    {% bootstrap_pagination page size="small" url="" %}
 
-    {% for bb in bbs %}
-        <div>
-            <h2>
-                <a href="{% url 'detail' pk=bb.pk %}">
-                    {{ bb.title_and_price }}
-                </a>
-            </h2>
-            <p>{{ bb.content.rendered }}</p>
-            <p>{{bb.price|cur}}</p>
-            <p>{{bb.price|cur:'тг'}}</p>
-            <p><a href="{{ bb.rubric.get_absolute_url }}">
-                {{ bb.rubric.name }}</a></p>
-            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
-        </div>
-    {% endfor %}
-    <p>
+{% if user.is_authenticated %}
+<h3>
+    <a href="{% url 'logout' %}">
+        Выйти ({{ user.username }})
+    </a>
+</h3>
+{% else %}
+<h3>
+    <a href="{% url 'login' %}">
+        Войти
+    </a>
+</h3>
+{% endif %}
+
+{#% bootstrap_pagination page size="small" url="/page" %#}
+
+{% for bb in bbs %}
+<div>
+    <h2>
+        <a href="{% url 'detail' pk=bb.pk %}">
+            {{ bb.title_and_price }}
+        </a>
+    </h2>
+    <p>{{ bb.content.rendered }}</p>
+
+    <p><strong>Цена:</strong> {{ bb.price|cur }}</p>
+    <p><strong>Цена:</strong> {{ bb.price|cur:'тг.' }}</p>
+
+    <p><a href="{{ bb.rubric.get_absolute_url }}">
+        {{ bb.rubric.name }}</a></p>
+    <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+</div>
+{% endfor %}
+
+
+<nav>
+    <ul class="pagination">
         {% if page.has_previous %}
-            <a href="{% url 'page' page.previous_page_number %}">&#9664;</a>
-                 &nbsp;|&nbsp;
+        <li class="page-item">
+            <a class="page-link" href="{% url 'page' page.previous_page_number %}">Предыдущая</a>
+        </li>
         {% endif %}
-
         {% for i in page.paginator.page_range %}
-        {{ i }}
+            {% if i == page.number %}
+                <li class="page-item active" aria-current="page">
+            {% else %}
+                <li class="page-item">
+            {% endif %}
+                    <a class="page-link" href="/page/{{ i }}">{{ i }}</a>
+                </li>
         {% endfor %}
-
         {% if page.has_next %}
-            &nbsp;|&nbsp;
-            <a href="{% url 'page' page.next_page_number %}">&#9654;</a>
+            <li class="page-item">
+                <a class="page-link" href="{% url 'page' page.next_page_number %}">Следующая</a>
+            </li>
         {% endif %}
-    </p>
-<div>{% lst ', ' '1' '2' '3' '4' '5' %}</div>
+    </ul>
+</nav>
+
 {% endblock content %}

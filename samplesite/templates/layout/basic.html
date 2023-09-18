@@ -7,7 +7,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Главная{% endblock %} :
+    <title>{% block title %}Главная{% endblock %} ::
         Доска объявлений</title>
 
     {% bootstrap_css %}
@@ -25,12 +25,15 @@
 
 <section>
     {% block content %}
+        Контента нет, но он есть!
     {% endblock %}
 </section>
+
+
+{% bootstrap_javascript jquery=True %}
 
 {% static 'bboard/script.js' as js_url %}
 <script src="{{ js_url }}"></script>
 
 </body>
-{% bootstrap_javascript jquery=True %}
 </html>
