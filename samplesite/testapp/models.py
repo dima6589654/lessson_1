@@ -59,6 +59,11 @@ class Note(models.Model):
     content_object = GenericForeignKey(ct_field='content_type',
                                        fk_field='object_id')
 
+    class Meta:
+        permissions = (
+            ('hide_comments', 'Можно скрывать комментарии')
+        )
+
 
 # Прямое наследование
 # ##
