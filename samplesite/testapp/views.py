@@ -1,14 +1,17 @@
-import os
+import os.path
 from datetime import datetime
 
+from django.db import transaction
 from django.http import FileResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView,\
+    DeleteView, UpdateView
 
 from firstsite.settings import BASE_DIR
 from testapp.forms import SMSCreateForm, ImgForm
 from testapp.models import SMS, Img
+
 
 FILES_ROOT = os.path.join(BASE_DIR, 'files')
 
@@ -29,9 +32,10 @@ def index(request):
 
     for entry in os.scandir(FILES_ROOT):
         imgs.append(os.path.basename(entry))
-        print(imgs)
-        context = {'imgs': imgs}
-        return render(request, 'testapp/index.html', context)
+        print('FILE: ', os.path.basename(entry))
+    print(imgs)
+    context = {'imgs': imgs}
+    return render(request, 'testapp/index.html', context)
 
 
 def get(request, filename):
@@ -47,9 +51,11 @@ def add(request):
             fn = '%s%s' % (datetime.now().timestamp(),
                            os.path.splitext(uploaded_file.name)[1])
             fn = os.path.join(FILES_ROOT, fn)
+
             with open(fn, 'wb+') as destination:
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
+
             return redirect('testapp:index')
     else:
         form = ImgForm()
@@ -64,6 +70,7 @@ def edit(request, pk):
     if request.method == 'POST':
         form = ImgForm(request.POST, request.FILES, instance=img)
         if form.is_valid():
+            form.save()
             return redirect('index')
     else:
         form = ImgForm(instance=img)

@@ -32,12 +32,9 @@ class RubricQuerySet(models.QuerySet):
 
 class RubricManager(models.Manager):
     def get_queryset(self):
-        # return super().get_queryset().order_by('name')
         return RubricQuerySet(self.model, using=self._db)
 
     def order_by_bb_count(self):
-        # return super().get_queryset().annotate(
-        #     cnt=models.Count('bb')).order_by('-cnt')
         return self.get_queryset().order_by_bb_count()
 
 
@@ -54,32 +51,12 @@ class Rubric(models.Model):
     )
 
     objects = RubricManager()
-    # bbs = RubricManager()
 
-    # objects = models.Manager()
-    # bbs = RubricManager()
-
-    # objects = RubricQuerySet.as_manager()
-    # objects = models.Manager.from_queryset(RubricQuerySet)()
 
     def __str__(self):
         return self.name
 
-    # def save(self, *args, **kwargs):
-    #     # Выполняем какие-то действия до сохранения
-    #     if True:
-    #         super().save(*args, **kwargs)
-    #     # Выполняем какие-то действия после сохранения
-    #
-    # def delete(self, *args, **kwargs):
-    #     # Выполняем какие-то действия до удаления
-    #     if True:
-    #         super().delete(*args, **kwargs)
-    #     # Выполняем какие-то действия после удаления
-
     def get_absolute_url(self):
-        # return "/bboard/%s/" % self.pk
-        # return f"/bboard/{self.pk}/"
         return f"/{self.pk}/"
 
     class Meta:
@@ -106,9 +83,6 @@ class Bb(models.Model):
         max_length=50,
         verbose_name="Товар",
         validators=[validators.MinLengthValidator(get_min_length)],
-        # validators=[validators.RegexValidator(regex='^.{4,}$',
-        # inverse_match=True)]
-        # validators=[validators.ProhibitNullCharactersValidator()]  # \x00
         error_messages={'min_length': 'Слишком мало символов'},
     )
 
@@ -129,7 +103,6 @@ class Bb(models.Model):
         null=True,
         blank=True,
         verbose_name="Цена",
-        # validators=[validate_even]  # , MinMaxValueValidator(50, 60_000_000)]
     )
 
     published = models.DateTimeField(
@@ -138,11 +111,10 @@ class Bb(models.Model):
         verbose_name="Опубликовано",
     )
 
-    archive = models.FileField(
-        # upload_to='archives/',
-        # upload_to='archives/%Y/%m/%d/',
+    picture = models.ImageField(
         upload_to=get_timestamp_path,
         blank=True,
+        verbose_name="Изображение",
     )
 
     objects = models.Manager()
@@ -153,12 +125,10 @@ class Bb(models.Model):
 
     def title_and_price(self):
         if self.price:
-            # return '%s (%.2f)' % (self.title, self.price)
             return f'{self.title} ({self.price:.2f})'
         return self.title
 
     class Meta:
-        # order_with_respect_to = 'rubric'
         verbose_name = "Объявление"
         verbose_name_plural = "Объявления"
         ordering = ['-published', 'title']

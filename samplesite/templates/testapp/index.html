@@ -9,32 +9,11 @@
 
 {% for img in imgs %}
 <div class="image">
-    <H3>{{img.desc}}</H3>
     <p>
-        <img src="{% url 'testapp:get' filename=img %}" alt="{{img.desc}}">
+        <img src="{% url 'testapp:get' filename=img %}" alt="">
     </p>
 </div>
 {% endfor %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

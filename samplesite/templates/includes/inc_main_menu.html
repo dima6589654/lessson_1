@@ -19,16 +19,16 @@
     {% endfor %}
 
 {% if user.is_authenticated %}
-<h3>
+<h4>
     <a href="{% url 'logout' %}">
         Выйти ({{ user.username }})
     </a>
-</h3>
+</h4>
 {% else %}
-<h3>
+<h4>
     <a href="{% url 'login' %}">
         Войти
     </a>
-</h3>
+</h4>
 {% endif %}
 </nav>

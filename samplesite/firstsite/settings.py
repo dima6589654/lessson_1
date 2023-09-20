@@ -43,18 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
-    'django_cleanup',
-    'easy_thumbnails',
     'bootstrap4',
     'captcha',
     'precise_bbcode',
+    'django_cleanup',
+    'easy_thumbnails',
 
     'bboard.apps.BboardConfig',
     'testapp.apps.TestappConfig',
     'authapp',
-
-
 ]
 
 MIDDLEWARE = [
@@ -212,6 +209,13 @@ THUMBNAIL_ALIASES = {
         'big': {
             'size': (480, 640),
             'crop': '10,10',
-        },
+        }
     },
 }
+
+THUMBNAIL_DEFAULT_OPTIONS = {
+    'quality': 90,
+    'subsampling': 1,
+}
+
+THUMBNAIL_BASEDIR = 'thumbs'

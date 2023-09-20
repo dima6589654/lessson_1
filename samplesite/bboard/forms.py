@@ -8,31 +8,6 @@ from django.core import validators
 from bboard.models import Bb, Rubric
 
 
-# class BbForm(ModelForm):
-#     class Meta:
-#         model = Bb
-#         fields = ('title', 'content', 'price', 'rubric')
-
-
-# BbForm = modelform_factory(Bb,
-#                            fields=('title', 'content', 'price', 'rubric'),
-#                            labels={'title': 'Название товара'},
-#                            help_texts={'rubric': 'Не забудьте выбрать рубрику!'},
-#                            field_classes={'price': DecimalField},
-#                            widgets={'rubric': Select(attrs={'size': 8})}
-#                            )
-
-
-# class BbForm(ModelForm):
-#     class Meta:
-#         model = Bb
-#         fields = ('title', 'content', 'price', 'rubric')
-#         labels = {'title': 'Название товара'},
-#         help_texts = {'rubric': 'Не забудьте выбрать рубрику!'},
-#         field_classes = {'price': DecimalField},
-#         widgets = {'rubric': Select(attrs={'size': 8})}
-
-
 class BbForm(ModelForm):
     title = forms.CharField(label='Название товара',
                             validators=[validators.RegexValidator(regex='^.{4,}$')],
@@ -43,15 +18,14 @@ class BbForm(ModelForm):
     price = forms.DecimalField(label='Цена', decimal_places=2)
     rubric = forms.ModelChoiceField(queryset=Rubric.objects.all(),
                                     label='Рубрика', help_text='Не забудьте выбрать рубрику!',
-                                    widget=forms.widgets.Select(attrs={'size': 5,
+                                    widget=forms.widgets.Select(attrs={'size': 1,
                                                                        'class': 'danger'}))
-
+    #
     # captcha = CaptchaField(label='Введите текст с картинки',
     #                        error_messages={'invalid': 'Неправильный текст'},
-    #                        # generator='captcha.helpers.math_challenge'
     #                        )
 
-    archive = forms.FileField(label='Выберите файл',)
+    picture = forms.ImageField(label='Выберите файл', )
 
     def clean_title(self):
         val = self.cleaned_data['title']
@@ -71,7 +45,7 @@ class BbForm(ModelForm):
 
     class Meta:
         model = Bb
-        fields = ('title', 'content', 'price', 'rubric', 'archive')
+        fields = ('title', 'content', 'price', 'rubric', 'picture')
 
 
 class SearchForm(forms.Form):
