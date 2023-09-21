@@ -15,17 +15,12 @@
         </a>
     </h2>
     <p>{{ bb.content.rendered }}</p>
-
     <p><strong>Цена:</strong> {{ bb.price|cur }}</p>
-    <p><strong>Цена:</strong> {{ bb.price|cur:'тг.' }}</p>
-
     <p><a href="{{ bb.rubric.get_absolute_url }}">
         {{ bb.rubric.name }}</a></p>
     <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
 </div>
 {% endfor %}
-
-
 <nav>
     <ul class="pagination">
         {% if page.has_previous %}
@@ -49,5 +44,6 @@
         {% endif %}
     </ul>
 </nav>
+
 
 {% endblock content %}

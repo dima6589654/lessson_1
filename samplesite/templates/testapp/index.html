@@ -5,7 +5,15 @@
     <title>Title</title>
 </head>
 <body>
+{% for usr in users %}
 
+    <div class="card" style="border-bottom: 1px solid black; margin-bottom: 35px;">
+    <h3>{{ usr.username }}</h3>
+    <p>{{ usr.email }}</p>
+    <p>{{ usr.first_name }}</p>
+    </div>
+
+{% endfor %}
 
 {% for img in imgs %}
 <div class="image">
