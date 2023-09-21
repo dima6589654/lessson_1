@@ -61,7 +61,7 @@ class Note(models.Model):
 
     class Meta:
         permissions = (
-            ('hide_comments', 'Можно скрывать комментарии')
+            ('hide_comments', 'Можно скрывать заметки'),
         )
 
 
